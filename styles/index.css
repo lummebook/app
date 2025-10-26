@@ -1,0 +1,89 @@
+body {
+    background-color: var(--cor-fundo-primaria);
+}
+
+#nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem;
+
+    background-color: var(--cor-destaque-primaria);
+
+    color: var(--cor-texto-primaria);
+}
+
+.nav__botao-conectar {
+    border: 2px solid var(--cor-texto-terciaria);
+    border-radius: 25px;
+    padding: .5rem;
+
+    background-color: transparent;
+
+    color: var(--cor-texto-terciaria);
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.nav__botao-cadastrar {
+    border: 2px solid var(--cor-destaque-secundaria);
+    border-radius: 25px;
+    padding: .5rem;
+
+    background-color: var(--cor-destaque-secundaria);
+
+    color: var(--cor-texto-terciaria);
+    font-weight: bold;   
+
+    cursor: pointer;
+}
+
+#main {
+    max-width: 1100px;
+    margin-inline: auto;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2rem;
+    padding-top: 7rem;
+}
+
+.hero__conteudo {
+    max-width: 500px;
+}
+
+.hero h1 {
+    margin-bottom: 1rem;
+
+    font-size: 2.5rem;
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    line-height: 3rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.hero__redes-sociais {
+    display: flex;
+    gap: .5rem;
+
+    margin-top: 3rem;
+}
+
+.hero__redes-sociais .fa-brands, .hero__redes-sociais .fa-solid {
+    color: var(--cor-texto-primaria);
+    font-size: 1.8rem;
+}
+
+.hero__imagem {
+    background-color: aqua;
+}
