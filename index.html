@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumme - Landing Page</title>
+
+    <link rel="stylesheet" href="styles/main.css"> <!-- CSS geral -->
+    <link rel="stylesheet" href="styles/index.css"> <!-- CSS da página 'index.html' -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Ícones importados -->
+
+    <script src="./js/index.js" defer></script> <!-- Importa o JS da página 'index.html' -->
+</head>
+
+<body>
+    <!-- Barra de navegação superior -->
+    <nav id="nav">
+        <div class="nav__lado-esquerdo">
+            <img src="./images/logo" alt="LummeBook">
+        </div>
+
+        <div class="nav__lado-direito">
+            <button class="nav__botao-conectar" onclick="abrirLogin()">Conecte-se</button>
+            <button class="nav__botao-cadastrar" onclick="abrirCadastro()">Cadastre-se</button>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main id="main">
+        <!-- Hero (parte superior para convencer usuários) -->
+        <section class="hero">
+            <div class="hero__conteudo">
+                <h1>Sua próxima leitura está aqui</h1>
+                <p>
+                    Encontre os melhores livros pelos melhores preços. Com o Lumme fica fácil achar o seu novo livro
+                    preferido.
+                </p>
+    
+                <div class="hero__redes-sociais">
+                    <a href="#instagram"><i class="fa-brands fa-square-instagram"></i></i></a>
+                    <a href="#facebook"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="#twitter"><i class="fa-brands fa-square-twitter"></i></a>
+                    <a href="#email"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <div class="hero__imagem">
+                <img src="./images/hero" alt="Imagem do hero">
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

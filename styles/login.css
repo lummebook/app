@@ -1,0 +1,117 @@
+body {
+    background-color: var(--cor-destaque-primaria);
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100dvh;
+    width: 100%;
+}
+
+.login {
+    width: 60%;
+    min-width: 700px;
+    height: 90%;
+    min-height: 500px;
+
+    border-radius: 15px;
+    padding: 1.5rem;
+
+    background-color: var(--cor-fundo-primaria);
+
+    text-align: center;
+}
+
+.login__subtitulo {
+    margin-bottom: 5rem;
+}
+
+.form {
+    margin-bottom: auto;
+}
+
+.form__campo {
+    width: 350px;
+
+    margin-inline: auto;
+    margin-bottom: 1rem;
+}
+
+.form__campo label {
+    display: block;
+
+    text-align: left;
+    font-weight: 500;
+}
+
+.form__campo input {
+    display: block;
+
+    width: 100%;
+
+    border-radius: 10px;
+    border: none;
+    padding: .5rem 1rem;
+
+    background-color: var(--cor-fundo-secundaria);
+
+    font-size: 1rem;
+}
+
+.form__trocar-senha {
+    display: block;
+
+    color: var(--cor-destaque-primaria);
+    text-decoration: none;
+    font-size: .9rem;
+}
+
+.form__erro {
+    opacity: 0;
+
+    width: 350px;
+    height: 25px;
+
+    margin-inline: auto;
+    margin-top: 1rem;
+}
+
+.erro__mensagem {
+    color: rgb(202, 1, 1);
+    font-weight: 500;
+}
+
+.form__botao-conectar {
+    border: 2px solid var(--cor-destaque-secundaria);
+    border-radius: 25px;
+    padding: .5rem;
+    margin-top: 2rem;
+
+    background-color: var(--cor-destaque-secundaria);
+
+    color: var(--cor-texto-terciaria);
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.login__texto-cadastrar {
+    margin-top: 4rem;
+    margin-bottom: .5rem;
+}
+
+.login__botao-cadastrar {
+    border: 2px solid var(--cor-destaque-secundaria);
+    border-radius: 25px;
+    padding: .5rem;
+
+    background-color: transparent;
+
+    color: var(--cor-destaque-secundaria);
+    font-weight: bold;
+
+    cursor: pointer;
+}
