@@ -1,23 +1,25 @@
 // Cria a função para trocar para página de cadastro
 function abrirCadastro() {
-    window.location.href = "pages/cadastro.html";
+    window.location.href = "cadastro.html";
 }
 
 // Cria a função para trocar para página inicial
 function abrirHome () {
-    window.location.href = "pages/home.html";
+    window.location.href = "home.html";
 }
 
 // Cria a função para tentar conectar o usuário
 async function conectarUsuario (event) {
     event.preventDefault(); // Impede o formulário de recarregar a página
 
-    const email = document.getElementById("form__input-email").value; // Pega o valor do campo do email
-    const senha = document.getElementById("form__input-senha").value; // Pega o valor do campo da senha
+    // Pega o valor dos campos do formulário
+    const email = document.getElementById("form__input-email").value.trim();
+    const senha = document.getElementById("form__input-senha").value.trim();
 
-    const loginMensagem = document.getElementById("erro__mensagem"); // Pega o parágrafo para alterar o valor
+    // Pega o parágrafo da mensagem de erro
+    const loginMensagem = document.getElementById("erro__mensagem");
 
-    // Faz a requisição para o back-end (try/catch para segurança contra error)
+    // Faz a requisição para o back-end (try/catch para segurança contra erro)
     try {
         const res = await fetch("http://localhost:8080/login", {
             method: "POST",
@@ -32,6 +34,7 @@ async function conectarUsuario (event) {
 
         if (!res.ok) {
             loginMensagem.textContent = "Erro na requisição. Tente novamente."; // Muda a mensagem
+            loginMensagem.style.opacity = "1"; // Mostra a mensagem na tela
             return; // Termina a função
         }
 

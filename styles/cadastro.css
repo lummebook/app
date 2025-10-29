@@ -11,7 +11,7 @@ main {
     width: 100%;
 }
 
-.login {
+.cadastro {
     position: relative;
 
     width: 60%;
@@ -27,7 +27,7 @@ main {
     text-align: center;
 }
 
-.login__subtitulo {
+.cadastro__subtitulo {
     margin-bottom: 3rem;
 }
 
@@ -86,15 +86,15 @@ main {
     font-weight: 500;
 }
 
-.login__container-cadastrar {
+.cadastro__container-conectar {
     position: absolute;
     left: 50%;
     bottom: 1rem;
     transform: translateX(-50%);
 }
 
-.login__texto-cadastrar {
+.cadastro__texto-conectar {
     margin-bottom: .5rem;
-
+        
     font-size: .9rem;
 }
