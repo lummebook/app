@@ -27,3 +27,38 @@
 html, body {
     min-height: 100dvh;
 }
+
+.global__botao-primario {
+    border: 2px solid var(--cor-destaque-secundaria);
+    border-radius: 25px;
+    padding: .5rem;
+    margin-top: 1rem;
+
+    background-color: var(--cor-destaque-secundaria);
+
+    color: var(--cor-texto-terciaria);
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.global__botao-secundario {
+    border: 2px solid var(--cor-destaque-secundaria);
+    border-radius: 25px;
+    padding: .5rem;
+
+    background-color: transparent;
+
+    color: var(--cor-destaque-secundaria);
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.global__botao-icone {
+    border: none;
+
+    background-color: transparent;
+
+    cursor: pointer;
+}
