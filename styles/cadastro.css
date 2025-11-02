@@ -11,6 +11,7 @@ main {
     width: 100%;
 }
 
+/* <section> do cadastro */
 .cadastro {
     position: relative;
 
@@ -31,10 +32,12 @@ main {
     margin-bottom: 3rem;
 }
 
+/* Formulário */
 .form {
     margin-bottom: auto;
 }
 
+/* Container de um campo do formulário */
 .form__campo {
     width: 350px;
 
@@ -42,6 +45,7 @@ main {
     margin-bottom: .5rem;
 }
 
+/* Texto do campo do formulário */
 .form__campo label {
     display: block;
 
@@ -49,6 +53,7 @@ main {
     font-weight: 500;
 }
 
+/* Campo do formulário  */
 .form__campo input {
     display: block;
 
@@ -63,6 +68,7 @@ main {
     font-size: 1rem;
 }
 
+/* Link para trocar de senha */
 .form__trocar-senha {
     display: block;
 
@@ -71,6 +77,7 @@ main {
     font-size: .9rem;
 }
 
+/* Container para mensagem de erro */
 .form__erro {
     width: 350px;
     height: 25px;
@@ -79,6 +86,7 @@ main {
     margin-top: 1rem;
 }
 
+/* Texto da mensagem de erro */
 .erro__mensagem {
     opacity: 0;
 
@@ -86,6 +94,7 @@ main {
     font-weight: 500;
 }
 
+/* Container para fazer login */
 .cadastro__container-conectar {
     position: absolute;
     left: 50%;
@@ -93,6 +102,7 @@ main {
     transform: translateX(-50%);
 }
 
+/* Texto para fazer login */
 .cadastro__texto-conectar {
     margin-bottom: .5rem;
         

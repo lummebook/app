@@ -19,9 +19,10 @@
 
             <!-- Formulário para cadastrar-->
             <form action="" method="POST" class="form" onsubmit="cadastrarUsuario(event)">
+                <!-- Campos do formulário -->
                 <p class="form__campo">
-                    <label for="form__input-nome">Nome:</label>
-                    <input type="text" id="form__input-nome">
+                    <label for="form__input-nome">Nome:</label> <!-- Texto do campo -->
+                    <input type="text" id="form__input-nome"> <!-- Campo -->
                 </p>
                 <p class="form__campo">
                     <label for="form__input-email">Email:</label>
@@ -41,9 +42,11 @@
                     <p class="erro__mensagem" id="erro__mensagem"></p>
                 </div>
 
+                <!-- Botão para fazer o cadastro -->
                 <button class="global__botao-primario" type="submit" >Cadastre-se</button>
             </form>
 
+            <!-- Container para fazer o login -->
             <div class="cadastro__container-conectar">
                 <p class="cadastro__texto-conectar">Já possui uma conta?</p>
                 <button class="global__botao-secundario" onclick="abrirLogin()">Conecte-se</button>

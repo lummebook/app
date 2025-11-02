@@ -1,5 +1,7 @@
+/* Fontes importadas */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Variáveis CSS globais */
 :root {
     --cor-destaque-primaria: #0074D7;
     --cor-destaque-secundaria: #122C63;
@@ -15,6 +17,7 @@
     --fonte-titulo: "Montserrat Alternates";
 }
 
+/* Reset da página */
 * {
     box-sizing: border-box;
 
@@ -24,10 +27,12 @@
     font-family: var(--fonte-texto);
 }
 
+/* Altura mínima do site */
 html, body {
     min-height: 100dvh;
 }
 
+/* Estilo do botão primario */
 .global__botao-primario {
     border: 2px solid var(--cor-destaque-secundaria);
     border-radius: 25px;
@@ -42,6 +47,7 @@ html, body {
     cursor: pointer;
 }
 
+/* Estilo do botão secundário */
 .global__botao-secundario {
     border: 2px solid var(--cor-destaque-secundaria);
     border-radius: 25px;
@@ -55,6 +61,7 @@ html, body {
     cursor: pointer;
 }
 
+/* Estilo do botão que contém um ícone */
 .global__botao-icone {
     border: none;
 

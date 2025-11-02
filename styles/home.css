@@ -8,22 +8,128 @@ body {
     color: var(--cor-texto-terciaria);
 }
 
+/* Parte superior */
 header {
-    display: flex;justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 
-    height: 10dvh;
+    height: 65px;
 
     padding: 1rem 1.5rem;
 
     background-color: var(--cor-destaque-primaria);
 }
 
-header .menu {
+/* Controla a visibilidade do menu */
+header .menu__input {
+    display: none;
+}
+header .menu__input:checked ~ .menu__logo {
     display: flex;
-    justify-content: center;
-    align-items: center;
+}
+header .menu__input:checked ~ .menu__nav {
+    display: flex;
+}
+header .menu__input:checked ~ .menu__camada {
+    display: block;
 }
 
+/* "Botão" do menu */
+header .menu__label {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-inline: 2px;
+}
+header .menu__label:focus {
+    outline: 2px solid rgb(19, 19, 19) ;
+}
+
+/* Parte do topo do menu */
+header .menu__logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 250px;
+    height: 65px;
+
+    padding: .5rem;
+
+    background-color: var(--cor-destaque-primaria);
+}
+
+/* Navegação do menu */
+header .menu__nav {
+    position: fixed;
+    left: 0;
+    top: 65px;
+    bottom: 0;
+    z-index: 100;
+
+    display: none;
+
+    width: 250px;
+
+    padding: 1rem .5rem;
+
+    background-color: var(--cor-fundo-primaria);
+}
+
+/* Camada escura quando se abre o menu */
+header .menu__camada {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: none;
+
+    background-color: rgba(0, 0, 0, 0.466);
+}
+
+/* Lista com os botões */
+header .menu__nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+
+    height: 100%;
+
+    list-style: none;
+}
+
+/* Botão da lista */
+header .menu__nav .nav__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .5rem;
+
+    margin-bottom: 1rem;
+
+    cursor: pointer;
+}
+
+/* Cor dos ícones */
+header .menu__nav .fa-solid {
+    color: var(--cor-texto-primaria);
+}
+header .menu__logo .menu__label {
+    color: var(--cor-texto-primaria);
+}
+
+/* Barra de pesquisa */
 header .barra-pesquisa {
     display: flex;
     align-items: center;
@@ -35,10 +141,12 @@ header .barra-pesquisa {
     border-radius: 10px;
 }
 
+/* Ícone da barra de pesquisa */
 header .barra-pesquisa .fa-solid {
     color: var(--cor-texto-primaria);
 }
 
+/* Input da barra de pesquisa */
 header .barra-pesquisa input {
     min-width: 300px;
 
@@ -48,11 +156,11 @@ header .barra-pesquisa input {
 
     font-size: 1rem;
 }
-
 header .barra-pesquisa input:focus {
     outline: none;
 }
 
+/* Opções do final da parte superior */
 header .adicionais {
     display: flex;
     align-items: center;
@@ -64,6 +172,7 @@ main {
     padding-bottom: 0;
 }
 
+/* Div para conter as tags e os livros */
 .livros {
     display: grid;
     grid-template-columns: 150px 1fr;
@@ -78,6 +187,7 @@ main {
     background-color: var(--cor-fundo-secundaria);
 }
 
+/* Div que contém as tags */
 .livros__tags {
     display: flex;
     flex-direction: column;

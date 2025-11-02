@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,57 @@
 
     <link rel="stylesheet" href="../styles/main.css"> <!-- CSS geral -->
     <link rel="stylesheet" href="../styles/home.css"> <!-- CSS da página 'home.html' -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  <!-- Ícones importados -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Ícones importados -->
 </head>
 
 <body>
     <header>
+        <!-- Menu que abre e fecha usando HTML e CSS -->
         <div class="menu">
-            <button class="global__botao-icone"><i class="fa-solid fa-bars"></i></button>
+            <input type="checkbox" id="mudar-menu" aria-hidden="true" class="menu__input">
+            <!-- Botão do menu -->
+            <label for="mudar-menu" tabindex="0" class="menu__label"><i class="fa-solid fa-bars"></i></label>
+
+            <!-- Parte com a logo e o ícone para fechar o menu -->
+            <div class="menu__logo">
+                <img src="../images/logo" alt="Lumme">
+                <label for="mudar-menu" tabindex="0" class="menu__label">
+                    <i class="fa-solid fa-xmark"></i>
+                </label>
+            </div>
+
+            <!-- Navegação do menu -->
+            <nav class="menu__nav">
+                <ul>
+                    <div class="nav__cima">
+                        <!-- Itens do menu -->
+                        <li class="nav__item"><i class="fa-solid fa-circle-user"></i>Usuário</li>
+                        <li class="nav__item"><i class="fa-solid fa-house"></i>Início</li>
+                        <li class="nav__item"><i class="fa-solid fa-star"></i>Favoritos</li>
+                        <li class="nav__item"><i class="fa-solid fa-gear"></i>Configurações</li>
+                        <li class="nav__item"><i class="fa-solid fa-money-check-dollar"></i>Vender</li>
+                    </div>
+
+                    <div class="nav__baixo">
+                        <!-- Itens do menu -->
+                        <li class="nav__item"><i class="fa-solid fa-circle-info"></i>Ajuda</li>
+                        <li class="nav__item"><i class="fa-solid fa-door-open"></i>Sair</li>
+                    </div>
+                </ul>
+            </nav>
+
+            <!-- Camada escura ao abrir o menu -->
+            <div class="menu__camada"></div>
         </div>
 
+        <!-- Barra de pesquisa da parte superior -->
         <div class="barra-pesquisa">
             <button class="global__botao-icone"><i class="fa-solid fa-magnifying-glass"></i></button>
             <input type="text" placeholder="Pesquisar">
         </div>
 
+    <!-- Opções adicionais da barra superior -->
         <div class="adicionais">
             <button class="global__botao-icone"><i class="fa-solid fa-bell"></i></button>
             <button class="global__botao-icone"><i class="fa-solid fa-circle-user"></i></button>
@@ -29,7 +67,9 @@
     </header>
 
     <main>
+        <!-- Container para os livros e as tags -->
         <section class="livros">
+            <!-- Container para as tags -->
             <div class="livros__tags">
                 <button class="global__botao-primario">Todos</button>
                 <button class="global__botao-primario">Romance</button>
@@ -39,8 +79,9 @@
                 <button class="global__botao-primario">Autoajuda</button>
             </div>
 
+            <!-- Container para os livros -->
             <div class="livros__container">
-                
+
             </div>
         </section>
     </main>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +11,15 @@
 
     <script src="./js/index.js" defer></script> <!-- Importa o JS da página 'index.html' -->
 </head>
-
 <body>
     <!-- Barra de navegação superior -->
     <nav id="nav">
+        <!-- Logo do site -->
         <div class="nav__lado-esquerdo">
-            <img src="./images/logo" alt="LummeBook">
+            <img src="./images/logo" alt="Lumme">
         </div>
 
+        <!-- Botões para cadastrar e fazer login -->
         <div class="nav__lado-direito">
             <button class="nav__botao-conectar" onclick="abrirLogin()">Conecte-se</button>
             <button class="nav__botao-cadastrar" onclick="abrirCadastro()">Cadastre-se</button>
@@ -30,6 +30,8 @@
     <main id="main">
         <!-- Hero (parte superior para convencer usuários) -->
         <section class="hero">
+
+            <!-- Conteúdo textual -->
             <div class="hero__conteudo">
                 <h1>Sua próxima leitura está aqui</h1>
                 <p>
@@ -37,7 +39,9 @@
                     preferido.
                 </p>
     
+                <!-- Container das redes sociais -->
                 <div class="hero__redes-sociais">
+                    <!-- Links para as redes sociais -->
                     <a href="#instagram"><i class="fa-brands fa-square-instagram"></i></i></a>
                     <a href="#facebook"><i class="fa-brands fa-square-facebook"></i></a>
                     <a href="#twitter"><i class="fa-brands fa-square-twitter"></i></a>
@@ -45,11 +49,11 @@
                 </div>
             </div>
             
+            <!-- Conteúdo visual (imagem) -->
             <div class="hero__imagem">
                 <img src="./images/hero" alt="Imagem do hero">
             </div>
         </section>
     </main>
 </body>
-
 </html>
