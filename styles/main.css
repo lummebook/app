@@ -37,7 +37,6 @@ html, body {
     border: 2px solid var(--cor-destaque-secundaria);
     border-radius: 25px;
     padding: .5rem;
-    margin-top: 1rem;
 
     background-color: var(--cor-destaque-secundaria);
 

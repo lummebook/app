@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lumme - Cadastro</title>
 
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/cadastro.css">
+    <link rel="stylesheet" href="../styles/main.css"> <!-- CSS geral -->
+    <link rel="stylesheet" href="../styles/cadastro.css"> <!-- CSS dessa página -->
 
-    <script src="../js/cadastro.js" defer></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png"> <!-- Favicon do site -->
+
+    <script src="../js/cadastro.js" defer></script> <!-- Importa o JS dessa página -->
 </head>
 
 <body>
@@ -30,11 +32,11 @@
                 </p>
                 <p class="form__campo">
                     <label for="form__input-senha">Senha:</label>
-                    <input type="password" id="form__input-senha">
+                    <input type="password" id="form__input-senha" oninput="limparMensagemDeErro()">
                 </p>
                 <p class="form__campo">
                     <label for="form__input-confirmar-senha">Confirme sua senha:</label>
-                    <input type="password" id="form__input-confirmar-senha">
+                    <input type="password" id="form__input-confirmar-senha" oninput="limparMensagemDeErro()">
                 </p>
 
                 <!-- Mensagem de erro para email ou senha incorretos -->

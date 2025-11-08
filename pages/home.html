@@ -11,26 +11,39 @@
     <link rel="stylesheet" href="../styles/home.css"> <!-- CSS da página 'home.html' -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Ícones importados -->
+
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png"> <!-- Favicon do site -->
+
+    <script src="../js/home.js" defer></script> <!-- Carrega o JS dessa página -->
+
 </head>
 
-<body>
+<body onload="carregarConfiguracoes()">
     <header>
         <!-- Menu que abre e fecha usando HTML e CSS -->
-        <div class="menu">
-            <input type="checkbox" id="mudar-menu" aria-hidden="true" class="menu__input">
+        <div class="menu-principal">
+
+            <!-- Controla a visibilidade do menu de configurações -->
+            <input type="checkbox" id="mudar-menu-principal" aria-hidden="true" class="menu-principal__input">
+
             <!-- Botão do menu -->
-            <label for="mudar-menu" tabindex="0" class="menu__label"><i class="fa-solid fa-bars"></i></label>
+            <label for="mudar-menu-principal" tabindex="0" class="menu-principal__label"><i
+                    class="fa-solid fa-bars"></i></label>
 
             <!-- Parte com a logo e o ícone para fechar o menu -->
-            <div class="menu__logo">
-                <img src="../images/logo" alt="Lumme">
-                <label for="mudar-menu" tabindex="0" class="menu__label">
+            <div class="menu-principal__logo">
+
+                <!-- Logo do site -->
+                <img src="../images/logo.jpg" alt="Lumme">
+
+                <!-- Botão do menu principal -->
+                <label for="mudar-menu-principal" tabindex="0" class="menu-principal__label">
                     <i class="fa-solid fa-xmark"></i>
                 </label>
             </div>
 
             <!-- Navegação do menu -->
-            <nav class="menu__nav">
+            <nav class="menu-principal__nav">
                 <ul>
                     <div class="nav__cima">
                         <!-- Itens do menu -->
@@ -50,19 +63,46 @@
             </nav>
 
             <!-- Camada escura ao abrir o menu -->
-            <div class="menu__camada"></div>
+            <div class="menu-principal__camada"></div>
         </div>
 
         <!-- Barra de pesquisa da parte superior -->
         <div class="barra-pesquisa">
-            <button class="global__botao-icone"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <input type="text" placeholder="Pesquisar">
+            <label for="barra-pesquisa__input" tabindex="0">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </label>
+            <input type="text" placeholder="Pesquisar" id="barra-pesquisa__input">
         </div>
 
-    <!-- Opções adicionais da barra superior -->
+        <!-- Opções adicionais da barra superior -->
         <div class="adicionais">
             <button class="global__botao-icone"><i class="fa-solid fa-bell"></i></button>
-            <button class="global__botao-icone"><i class="fa-solid fa-circle-user"></i></button>
+
+            <!-- Controla a visibilidade do menu de configurações -->
+            <input type="checkbox" id="mudar-menu-config" aria-hidden="true" class="menu-config__input">
+
+            <!-- Botão do menu de configurações -->
+            <label for="mudar-menu-config" tabindex="0" class="menu-config__label">
+                <i class="fa-solid fa-circle-user"></i>
+            </label>
+
+            <!-- Menu com o ícone para fechar -->
+            <div class="menu-config__icone">
+
+                <!-- Ícone para fechar o menu -->
+                <label for="mudar-menu-config" tabindex="0" class="menu-config__label">
+                    <i class="fa-solid fa-xmark"></i>
+                </label>
+            </div>
+
+            <!-- Informações -->
+            <div class="menu-config__conteudo">
+                <p id="menu-config__nome"></p>
+                <p id="menu-config__email"></p>
+            </div>
+
+            <!-- Camada escura ao abrir o menu -->
+            <div class="menu-config__camada"></div>
         </div>
     </header>
 
@@ -86,4 +126,5 @@
         </section>
     </main>
 </body>
+
 </html>

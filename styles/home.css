@@ -5,7 +5,6 @@ body {
 /* Ajusta os ícones */
 .fa-solid {
     font-size: 1.5rem;
-    color: var(--cor-texto-terciaria);
 }
 
 /* Parte superior */
@@ -21,21 +20,21 @@ header {
 }
 
 /* Controla a visibilidade do menu */
-header .menu__input {
+header .menu-principal__input {
     display: none;
 }
-header .menu__input:checked ~ .menu__logo {
+header .menu-principal__input:checked ~ .menu-principal__logo {
     display: flex;
 }
-header .menu__input:checked ~ .menu__nav {
+header .menu-principal__input:checked ~ .menu-principal__nav {
     display: flex;
 }
-header .menu__input:checked ~ .menu__camada {
+header .menu-principal__input:checked ~ .menu-principal__camada {
     display: block;
 }
 
 /* "Botão" do menu */
-header .menu__label {
+header .menu-principal__label {
     cursor: pointer;
 
     display: flex;
@@ -44,12 +43,13 @@ header .menu__label {
 
     padding-inline: 2px;
 }
-header .menu__label:focus {
-    outline: 2px solid rgb(19, 19, 19) ;
+
+header .menu-principal__label .fa-solid {
+    color: var(--cor-texto-terciaria);
 }
 
 /* Parte do topo do menu */
-header .menu__logo {
+header .menu-principal__logo {
     position: fixed;
     top: 0;
     left: 0;
@@ -67,8 +67,15 @@ header .menu__logo {
     background-color: var(--cor-destaque-primaria);
 }
 
+/* Configura a logo do site */
+header .menu-principal__logo img {
+    height: 100%;
+
+    border-radius: 100%;
+}
+
 /* Navegação do menu */
-header .menu__nav {
+header .menu-principal__nav {
     position: fixed;
     left: 0;
     top: 65px;
@@ -85,7 +92,8 @@ header .menu__nav {
 }
 
 /* Camada escura quando se abre o menu */
-header .menu__camada {
+header .menu-principal__camada, 
+header .menu-config__camada {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -98,7 +106,7 @@ header .menu__camada {
 }
 
 /* Lista com os botões */
-header .menu__nav ul {
+header .menu-principal__nav ul {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -110,7 +118,7 @@ header .menu__nav ul {
 }
 
 /* Botão da lista */
-header .menu__nav .nav__item {
+header .menu-principal__nav .nav__item {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -122,10 +130,10 @@ header .menu__nav .nav__item {
 }
 
 /* Cor dos ícones */
-header .menu__nav .fa-solid {
+header .menu-principal__nav .fa-solid {
     color: var(--cor-texto-primaria);
 }
-header .menu__logo .menu__label {
+header .menu-principal__logo .menu-principal__label {
     color: var(--cor-texto-primaria);
 }
 
@@ -139,6 +147,10 @@ header .barra-pesquisa {
 
     padding: .3rem  .5rem;
     border-radius: 10px;
+}
+
+header .barra-pesquisa label {
+    cursor: pointer;
 }
 
 /* Ícone da barra de pesquisa */
@@ -167,6 +179,93 @@ header .adicionais {
     gap: 1.5rem;
 }
 
+/* Muda a cor dos ícones do menu de configurações */
+header .adicionais .fa-solid {
+    color: var(--cor-texto-terciaria);
+}
+
+/* Esconde o input */
+header .adicionais .menu-config__input {
+    display: none;
+}
+
+/* Configura o botão do menu de configurações */
+header .adicionais .menu-config__label {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2px;
+}
+
+/* Muda a cor do ícone de fechar o menu */
+header .adicionais .menu-config__input:checked ~ .menu-config__icone .fa-solid {
+    color: var(--cor-texto-primaria);
+}
+
+/* Controla a visibilidade do menu de configurações */
+header .adicionais .menu-config__input:checked ~ .menu-config__icone {
+    display: flex;
+}
+header .adicionais .menu-config__input:checked ~ .menu-config__conteudo {
+    display: flex;
+}
+header .adicionais .menu-config__input:checked ~ .menu-config__camada {
+    display: block;
+}
+
+/* Parte do topo do menu */
+header .adicionais .menu-config__icone {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    
+    width: 250px;
+    height: 65px;
+
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 1rem;
+
+    background-color: var(--cor-fundo-primaria);
+}
+
+/* Configura o menu de configurações */
+header .adicionais .menu-config__conteudo {
+    position: fixed;
+    top: 65px;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+
+    display: none;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+
+    width: 250px;
+
+    padding: .5rem;
+
+    background-color: var(--cor-fundo-primaria);
+}
+
+/* Estiliza o nome do usuário */
+header .adicionais .menu-config__conteudo #menu-config__nome {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Estiliza o email do usuário */
+header .adicionais .menu-config__conteudo #menu-config__email {
+    font-style: italic;
+}
+
 main {
     padding: 1.5rem;
     padding-bottom: 0;
@@ -191,6 +290,7 @@ main {
 .livros__tags {
     display: flex;
     flex-direction: column;
+    gap: .5rem;
 
     width: 150px;
     height: 100%;

@@ -6,23 +6,25 @@
     <title>Lumme - Landing Page</title>
 
     <link rel="stylesheet" href="styles/main.css"> <!-- CSS geral -->
-    <link rel="stylesheet" href="styles/index.css"> <!-- CSS da página 'index.html' -->
+    <link rel="stylesheet" href="styles/index.css"> <!-- CSS dessa página -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Ícones importados -->
 
-    <script src="./js/index.js" defer></script> <!-- Importa o JS da página 'index.html' -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png"> <!-- Favicon do site -->
+
+    <script src="./js/index.js" defer></script> <!-- Importa o JS dessa página -->
 </head>
 <body>
     <!-- Barra de navegação superior -->
     <nav id="nav">
         <!-- Logo do site -->
         <div class="nav__lado-esquerdo">
-            <img src="./images/logo" alt="Lumme">
+            <img src="./images/logo.jpg" alt="Lumme">
         </div>
 
         <!-- Botões para cadastrar e fazer login -->
         <div class="nav__lado-direito">
             <button class="nav__botao-conectar" onclick="abrirLogin()">Conecte-se</button>
-            <button class="nav__botao-cadastrar" onclick="abrirCadastro()">Cadastre-se</button>
+            <button class="global__botao-primario" onclick="abrirCadastro()">Cadastre-se</button>
         </div>
     </nav>
 

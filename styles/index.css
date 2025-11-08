@@ -1,11 +1,15 @@
+/* Cor de fundo do site */
 body {
     background-color: var(--cor-fundo-primaria);
 }
 
+/* Configura a barra superior */
 #nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    height: 65px;
 
     padding: 1rem;
 
@@ -14,6 +18,20 @@ body {
     color: var(--cor-texto-primaria);
 }
 
+/* Define o tamanho do lado esquerdo */
+.nav__lado-esquerdo {
+    height: 50px;
+}
+
+/* Configura a logo do site */
+.nav__lado-esquerdo img {
+    height: 50px;
+    width: 50px;
+
+    border-radius: 100%;
+}
+
+/* Configura o botão de conectar */
 .nav__botao-conectar {
     border: 2px solid var(--cor-texto-terciaria);
     border-radius: 25px;
@@ -27,24 +45,13 @@ body {
     cursor: pointer;
 }
 
-.nav__botao-cadastrar {
-    border: 2px solid var(--cor-destaque-secundaria);
-    border-radius: 25px;
-    padding: .5rem;
-
-    background-color: var(--cor-destaque-secundaria);
-
-    color: var(--cor-texto-terciaria);
-    font-weight: bold;   
-
-    cursor: pointer;
-}
-
+/* Define o tamanho do conteúdo principal */
 #main {
     max-width: 1100px;
     margin-inline: auto;
 }
 
+/* Configura o container */
 .hero {
     display: flex;
     justify-content: space-between;
@@ -54,10 +61,12 @@ body {
     padding-top: 7rem;
 }
 
+/* Define o tamanho do conteúdo do hero */
 .hero__conteudo {
     max-width: 500px;
 }
 
+/* Configura o título */
 .hero h1 {
     margin-bottom: 1rem;
 
@@ -67,11 +76,13 @@ body {
     line-height: 3rem;
 }
 
+/* Configura o parágrafo */
 .hero p {
     font-size: 1.2rem;
     font-weight: 400;
 }
 
+/* Configura o contâiner das redes sociais */
 .hero__redes-sociais {
     display: flex;
     gap: .5rem;
@@ -79,11 +90,13 @@ body {
     margin-top: 3rem;
 }
 
+/* Configura os ícones */
 .hero__redes-sociais .fa-brands, .hero__redes-sociais .fa-solid {
     color: var(--cor-texto-primaria);
     font-size: 1.8rem;
 }
 
+/* Configura a imagem */
 .hero__imagem {
     background-color: aqua;
 }
