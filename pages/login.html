@@ -23,11 +23,11 @@
             <form action="" method="POST" class="form" onsubmit="conectarUsuario(event)">
                 <p class="form__campo">
                     <label for="form__input-email">Email:</label> <!-- Texto do campo -->
-                    <input type="email" id="form__input-email" oninput="limparMensagemDeErro()"> <!-- Campo -->
+                    <input type="email" id="form__input-email" required oninput="limparMensagemDeErro()"> <!-- Campo -->
                 </p>
                 <p class="form__campo">
                     <label for="form__input-senha">Senha:</label>
-                    <input type="password" id="form__input-senha" oninput="limparMensagemDeErro()">
+                    <input type="password" id="form__input-senha" required oninput="limparMensagemDeErro()">
                 </p>
                 <!-- Link para trocar de senha -->
                 <a href="#trocar-senha" class="form__trocar-senha">Esqueceu a senha?</a>

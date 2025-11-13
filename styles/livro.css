@@ -1,0 +1,88 @@
+body {
+    background-color: var(--cor-destaque-secundaria);
+}
+
+.botao-voltar {
+    margin-bottom: 3rem;
+}
+
+.formulario-livro {
+    width: 700px;
+    height: 100dvh;
+
+    margin-inline: auto;
+    padding: 1rem;
+
+    background-color: var(--cor-fundo-primaria);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+    width: 450px;
+
+    margin-top: 3rem;
+    margin-inline: auto;
+}
+
+.form > div {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Container de um campo do formulário */
+.form__campo {
+    width: 100%;
+
+    margin-inline: auto;
+    margin-bottom: .5rem;
+}
+
+/* Texto do campo do formulário */
+.form__campo label {
+    display: block;
+
+    margin-bottom: .5rem;
+
+    text-align: left;
+    font-weight: 500;
+}
+
+/* Campo do formulário  */
+.form__campo input {
+    display: block;
+
+    width: 100%;
+
+    border-radius: 10px;
+    border: none;
+    padding: .5rem 1rem;
+
+    background-color: var(--cor-fundo-secundaria);
+
+    font-size: 1rem;
+}
+
+/* Container para mensagem de erro */
+.form__erro {
+    width: 350px;
+    height: 25px;
+
+    margin-inline: auto;
+    margin-top: 1rem;
+}
+
+/* Mensagem de erro */
+.erro__mensagem {
+    opacity: 0;
+
+    color: rgb(202, 1, 1);
+    font-weight: 500;
+}
+
+/* Estiliza o botão para vender */
+.form button {
+    margin-top: 5rem;
+}

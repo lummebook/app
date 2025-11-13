@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumme - Vender</title>
+
+    <link rel="stylesheet" href="../styles/main.css"> <!-- CSS geral -->
+    <link rel="stylesheet" href="../styles/livro.css"> <!-- CSS dessa página -->
+
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png"> <!-- Favicon do site -->
+
+    <script src="../js/livro.js" defer></script> <!-- Carrega o JS dessa página -->
+</head>
+
+<body>
+    <main>
+        <section class="formulario-livro">
+            <div class="botao-voltar"><button class="global__botao-secundario" onclick="abrirHome()">Voltar</button></div>
+
+            <h1>Venda de livro</h1>
+            <p>Preencha as informações abaixo para vender um novo livro</p>
+
+            <!-- Formulário para vender um livro -->
+            <form action="" method="POST" onsubmit="venderLivro(event)" class="form">
+                <div>
+                    <p class="form__campo">
+                        <label for="form__input-titulo">Título:</label> <!-- Texto do campo -->
+                        <input type="text" id="form__input-titulo" required> <!-- Campo -->
+                    </p>
+                </div>
+                <div>
+                    <p class="form__campo">
+                        <label for="form__input-autor">Autor:</label> <!-- Texto do campo -->
+                        <input type="text" id="form__input-autor" required> <!-- Campo -->
+                    </p>
+                </div>
+                <div>
+                    <p class="form__campo">
+                        <label for="form__input-preco">Preço:</label> <!-- Texto do campo -->
+                        <input type="number" step="0.01" inputmode="decimal" min="0" id="form__input-preco" required>
+                        <!-- Campo -->
+                    </p>
+                    <p class="form__campo">
+                        <label for="form__input-quant">Quantidade:</label> <!-- Texto do campo -->
+                        <input type="number" min="0" id="form__input-quant" required> <!-- Campo -->
+                    </p>
+                </div>
+
+                <!-- Mensagem de erro para email ou senha incorretos -->
+                <div class="form__erro">
+                    <p class="erro__mensagem" id="erro__mensagem"></p>
+                </div>
+
+                <!-- Botão para vender o livro -->
+                <div>
+                    <button class="global__botao-primario" type="submit">Faça sua venda</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>

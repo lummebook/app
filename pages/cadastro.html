@@ -24,19 +24,19 @@
                 <!-- Campos do formulário -->
                 <p class="form__campo">
                     <label for="form__input-nome">Nome:</label> <!-- Texto do campo -->
-                    <input type="text" id="form__input-nome"> <!-- Campo -->
+                    <input type="text" id="form__input-nome" required> <!-- Campo -->
                 </p>
                 <p class="form__campo">
-                    <label for="form__input-email">Email:</label>
-                    <input type="email" id="form__input-email">
+                    <label for="form__input-email">Email:</label> <!-- Texto do campo -->
+                    <input type="email" id="form__input-email" required> <!-- Campo -->
                 </p>
                 <p class="form__campo">
-                    <label for="form__input-senha">Senha:</label>
-                    <input type="password" id="form__input-senha" oninput="limparMensagemDeErro()">
+                    <label for="form__input-senha">Senha:</label> <!-- Texto do campo -->
+                    <input type="password" id="form__input-senha" required oninput="limparMensagemDeErro()"> <!-- Campo -->
                 </p>
                 <p class="form__campo">
-                    <label for="form__input-confirmar-senha">Confirme sua senha:</label>
-                    <input type="password" id="form__input-confirmar-senha" oninput="limparMensagemDeErro()">
+                    <label for="form__input-confirmar-senha">Confirme sua senha:</label> <!-- Texto do campo -->
+                    <input type="password" id="form__input-confirmar-senha" required oninput="limparMensagemDeErro()"> <!-- Campo -->
                 </p>
 
                 <!-- Mensagem de erro para email ou senha incorretos -->

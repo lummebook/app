@@ -8,7 +8,7 @@
 
 
     <link rel="stylesheet" href="../styles/main.css"> <!-- CSS geral -->
-    <link rel="stylesheet" href="../styles/home.css"> <!-- CSS da página 'home.html' -->
+    <link rel="stylesheet" href="../styles/home.css"> <!-- CSS dessa página -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Ícones importados -->
 
@@ -51,13 +51,19 @@
                         <li class="nav__item"><i class="fa-solid fa-house"></i>Início</li>
                         <li class="nav__item"><i class="fa-solid fa-star"></i>Favoritos</li>
                         <li class="nav__item"><i class="fa-solid fa-gear"></i>Configurações</li>
-                        <li class="nav__item"><i class="fa-solid fa-money-check-dollar"></i>Vender</li>
+                        <li class="nav__item" onclick="venderLivro()">
+                            <i class="fa-solid fa-money-check-dollar"></i>
+                            Vender
+                        </li>
                     </div>
 
                     <div class="nav__baixo">
                         <!-- Itens do menu -->
                         <li class="nav__item"><i class="fa-solid fa-circle-info"></i>Ajuda</li>
-                        <li class="nav__item"><i class="fa-solid fa-door-open"></i>Sair</li>
+                        <li class="nav__item" onclick="desconectarUsuario()">
+                            <i class="fa-solid fa-door-open"></i>
+                            Desconectar-se
+                        </li>
                     </div>
                 </ul>
             </nav>
