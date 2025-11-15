@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="../styles/main.css"> <!-- CSS geral -->
     <link rel="stylesheet" href="../styles/home.css"> <!-- CSS dessa página -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <!-- Ícones importados -->
 
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png"> <!-- Favicon do site -->
@@ -18,7 +18,7 @@
 
 </head>
 
-<body onload="carregarConfiguracoes()">
+<body onload="executarFuncoes()">
     <header>
         <!-- Menu que abre e fecha usando HTML e CSS -->
         <div class="menu-principal">
@@ -43,14 +43,26 @@
             </div>
 
             <!-- Navegação do menu -->
-            <nav class="menu-principal__nav">
+            <nav class="menu-principal__nav" id>
                 <ul>
                     <div class="nav__cima">
                         <!-- Itens do menu -->
-                        <li class="nav__item"><i class="fa-solid fa-circle-user"></i>Usuário</li>
-                        <li class="nav__item"><i class="fa-solid fa-house"></i>Início</li>
-                        <li class="nav__item"><i class="fa-solid fa-star"></i>Favoritos</li>
-                        <li class="nav__item"><i class="fa-solid fa-gear"></i>Configurações</li>
+                        <li class="nav__item">
+                            <i class="fa-solid fa-circle-user"></i>
+                            Usuário
+                        </li>
+                        <li class="nav__item">
+                            <i class="fa-solid fa-house"></i>
+                            Início
+                        </li>
+                        <li class="nav__item">
+                            <i class="fa-solid fa-cart-arrow-down"></i>
+                            Carrinho
+                        </li>
+                        <li class="nav__item">
+                            <i class="fa-solid fa-gear"></i>
+                            Configurações
+                        </li>
                         <li class="nav__item" onclick="venderLivro()">
                             <i class="fa-solid fa-money-check-dollar"></i>
                             Vender
@@ -82,6 +94,10 @@
 
         <!-- Opções adicionais da barra superior -->
         <div class="adicionais">
+            <!-- Ícone do carrinho -->
+            <button class="global__botao-icone"><i class="fa-solid fa-cart-arrow-down"></i></button>
+
+            <!-- Ícone das notificações -->
             <button class="global__botao-icone"><i class="fa-solid fa-bell"></i></button>
 
             <!-- Controla a visibilidade do menu de configurações -->
@@ -126,8 +142,12 @@
             </div>
 
             <!-- Container para os livros -->
-            <div class="livros__container">
-
+            <div class="livros__container" id="livros__container">
+                <!-- Mensagem de erro para caso os livros não carregarem -->
+                <div class="livros__erro" id="livros__erro">
+                    <p class="erro__mensagem" id="erro__mensagem">Houve um erro ao tentar carregar os Livros. Tente
+                        novamente.</p>
+                </div>
             </div>
         </section>
     </main>

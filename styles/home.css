@@ -99,6 +99,7 @@ header .menu-config__camada {
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 50;
 
     display: none;
 
@@ -272,22 +273,21 @@ main {
 }
 
 /* Div para conter as tags e os livros */
-.livros {
+main .livros {
     display: grid;
     grid-template-columns: 150px 1fr;
     grid-template-rows: 1fr;
 
-
     min-height: calc(90dvh - 1rem);
     min-width: 100%;
 
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
 
     background-color: var(--cor-fundo-secundaria);
 }
 
-/* Div que contém as tags */
-.livros__tags {
+/* Configura o container das tags */
+main .livros__tags {
     display: flex;
     flex-direction: column;
     gap: .5rem;
@@ -299,4 +299,114 @@ main {
     padding: .5rem;
 
     background-color: var(--cor-fundo-primaria);
+}
+
+/* Configura o container dos livros */
+main .livros__container {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 2rem;
+
+    padding: 1rem;
+}
+
+/* Container para mensagem de erro */
+main .livros__erro {
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / -1;
+
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 5rem;
+}
+
+/* Mensagem de erro */
+main .erro__mensagem {
+    max-width: 350px;
+
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Configura o container de um livro */
+main .livro {
+    position: relative;
+
+    height: 370px;
+    width: 250px;
+
+    border-radius: 10px;
+    padding: .5rem;
+
+    background-color: var(--cor-fundo-primaria);
+}
+
+/* Configura a imagem do livro */
+main .livro__imagem {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+
+    border-radius: 10px 10px 0 0;
+    margin-bottom: .5rem;
+
+    background-color: gray;
+}
+
+/* Estiliza o título */
+main .livro__titulo {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+/* Estiliza o nome do autor */
+main .livro__autor {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    color: var(--cor-texto-secundaria);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Estiliza o preço do livro */
+main .livro__preco {
+    margin-top: .5rem;
+
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* Estiliza o número da quantidade de livros disponíveis */
+main .livro__quant {
+    font-size: .9rem;
+    color: var(--cor-texto-secundaria);
+}
+
+/* Estiliza o botão de detalhes */
+main .livro__botao-detalhes {
+    position: absolute;
+    bottom: .5rem;
+}
+
+/* Estiliza o botão de adicionar ao carrinho */
+main .livro__botao-carrinho {
+    position: absolute;
+    bottom: .5rem;
+    right: .5rem;
 }

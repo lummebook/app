@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lumme - Vender</title>
 
     <link rel="stylesheet" href="../styles/main.css"> <!-- CSS geral -->
-    <link rel="stylesheet" href="../styles/livro.css"> <!-- CSS dessa página -->
+    <link rel="stylesheet" href="../styles/venda.css"> <!-- CSS dessa página -->
 
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png"> <!-- Favicon do site -->
 
-    <script src="../js/livro.js" defer></script> <!-- Carrega o JS dessa página -->
+    <script src="../js/venda.js" defer></script> <!-- Carrega o JS dessa página -->
 </head>
-
 <body>
     <main>
         <section class="formulario-livro">
@@ -25,26 +23,37 @@
             <!-- Formulário para vender um livro -->
             <form action="" method="POST" onsubmit="venderLivro(event)" class="form">
                 <div>
+                    <!-- Container do campo -->
                     <p class="form__campo">
-                        <label for="form__input-titulo">Título:</label> <!-- Texto do campo -->
-                        <input type="text" id="form__input-titulo" required> <!-- Campo -->
-                    </p>
-                </div>
-                <div>
-                    <p class="form__campo">
-                        <label for="form__input-autor">Autor:</label> <!-- Texto do campo -->
-                        <input type="text" id="form__input-autor" required> <!-- Campo -->
-                    </p>
-                </div>
-                <div>
-                    <p class="form__campo">
-                        <label for="form__input-preco">Preço:</label> <!-- Texto do campo -->
-                        <input type="number" step="0.01" inputmode="decimal" min="0" id="form__input-preco" required>
+                        <!-- Texto do campo -->
+                        <label for="form__input-titulo">Título:</label>
                         <!-- Campo -->
+                        <input type="text" id="form__input-titulo" required>
                     </p>
+                </div>
+                <div>
+                    <!-- Container do campo -->
                     <p class="form__campo">
-                        <label for="form__input-quant">Quantidade:</label> <!-- Texto do campo -->
-                        <input type="number" min="0" id="form__input-quant" required> <!-- Campo -->
+                        <!-- Texto do campo -->
+                        <label for="form__input-autor">Autor:</label>
+                        <!-- Campo -->
+                        <input type="text" id="form__input-autor" required>
+                    </p>
+                </div>
+                <div>
+                    <!-- Container do campo -->
+                    <p class="form__campo">
+                        <!-- Texto do campo -->
+                        <label for="form__input-preco">Preço:</label>
+                        <!-- Campo -->
+                        <input type="number" step="0.01" inputmode="decimal" min="0" id="form__input-preco" required>
+                    </p>
+                    <!-- Container do campo -->
+                    <p class="form__campo">
+                        <!-- Texto do campo -->
+                        <label for="form__input-quant">Quantidade:</label>
+                        <!-- Campo -->
+                        <input type="number" min="0" id="form__input-quant" required>
                     </p>
                 </div>
 
