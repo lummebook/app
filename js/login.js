@@ -20,6 +20,9 @@ async function conectarUsuario(event) {
     // Pega o parágrafo da mensagem de erro
     const loginMensagem = document.getElementById("erro__mensagem");
 
+    loginMensagem.textContent = ""; // Tira a mensagem
+    loginMensagem.style.opacity = "0"; // Esconde a mensagem da tela
+
     // Bloco try/catch para impedir erro de aparecer para o usuário
     // Caso a requisição der erro, cai no catch
     try {
@@ -52,6 +55,7 @@ async function conectarUsuario(event) {
 
         abrirHome(); // Vai para página inicial
     } catch (erro) {
+        loginMensagem.style.opacity = "1"; // Monstra a mensagem na tela
         loginMensagem.textContent = "Erro na requisição. Tente novamente."; // Muda a mensagem
         console.error(erro); // Mostra mensagem do erro no console
     }

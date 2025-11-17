@@ -129,3 +129,48 @@ main {
 
     font-size: 1rem;
 }
+
+@media screen and (max-width: 480px) {
+    main {
+        padding: 1rem;
+    }
+
+    .carrinho-container {
+        display: flex;
+        flex-direction: column-reverse;
+
+        width: 100%;
+    }
+
+    .carrinho__resumo {
+        width: 100%;
+    }
+
+    .livro {
+        position: relative;
+
+        height: 220px;
+    }
+
+    .livro__imagem {
+        height: 150px;
+        width: 110px;
+
+        flex: none;
+
+        border-radius: 5px;
+    }
+
+    .livro__conteudo {
+        flex: auto;
+    }
+
+    .livro__conteudo-principal {
+        flex-direction: column;
+    }
+
+    .livro__botao-remover-carrinho {
+        position: absolute;
+        bottom: 1rem;
+    }
+}

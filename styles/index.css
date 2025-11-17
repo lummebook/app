@@ -97,6 +97,17 @@ body {
 }
 
 /* Configura a imagem */
-.hero__imagem {
-    background-color: aqua;
+.hero__imagem img {
+    width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    .hero {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero__imagem {
+        margin-top: 3rem;
+    }
 }

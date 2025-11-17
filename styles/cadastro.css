@@ -105,6 +105,37 @@ main {
 /* Texto para fazer login */
 .cadastro__texto-conectar {
     margin-bottom: .5rem;
-        
+
     font-size: .9rem;
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        background-color: var(--cor-fundo-primaria);
+    }
+
+    main {
+        display: block;
+    }
+
+    .cadastro {
+        width: auto;
+        min-width: auto;
+        height: auto;
+        min-height: auto;
+
+        margin-top: 4rem;
+    }
+
+    .form__campo {
+        max-width: 100%;
+        min-width: 200px;
+    }
+
+    .cadastro__container-conectar {
+        position: static;
+        transform: translateX(0);
+
+        margin-top: 7rem;
+    }
 }

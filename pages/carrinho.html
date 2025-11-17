@@ -135,8 +135,8 @@
 
     <main>
         <!-- Popup para mensagens gerais -->
-        <div class="popup">
-            <p class="popup__texto" id="popup__texto"></p>
+        <div class="popup" id="popup">
+            <p class="popup__mensagem" id="popup__mensagem"></p>
         </div>
 
         <div class="carrinho-container">
@@ -159,21 +159,30 @@
                 <hr>
 
                 <p class="resumo-campo">
-                    <span>Produtos: </span>
+                    <span>Quantidade: </span>
                     <span>
-                        <span id="resumo-produtos-preco"></span>
+                        <span id="resumo-quantidade">0</span>
+                    </span>
+                </p>
+                <p class="resumo-campo">
+                    <span>Preço total: </span>
+                    <span>
+                        <span>R$</span>
+                        <span id="resumo-produtos-preco">0,00</span>
                     </span>
                 </p>
                 <p class="resumo-campo">
                     <span>Frete: </span>
                     <span>
-                        <span id="resumo-frete-preco">10,00</span>
+                        <span>R$</span>
+                        <span id="resumo-frete-preco">0,00</span>
                     </span>
                 </p>
                 <p class="resumo-campo resumo-total">
                     <span>Total: </span>
                     <span>
-                        <span id="resumo-total-preco"></span>
+                        <span>R$</span>
+                        <span id="resumo-total-preco">0,00</span>
                     </span>
                 </p>
 

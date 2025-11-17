@@ -103,10 +103,14 @@
         <!-- Opções adicionais da barra superior -->
         <div class="adicionais">
             <!-- Ícone do carrinho -->
-            <button class="global__botao-icone js-abrir-carrinho"><i class="fa-solid fa-cart-arrow-down"></i></button>
+            <button class="global__botao-icone js-abrir-carrinho">
+                <i class="fa-solid fa-cart-arrow-down"></i>
+            </button>
 
             <!-- Ícone das notificações -->
-            <button class="global__botao-icone"><i class="fa-solid fa-bell"></i></button>
+            <button class="global__botao-icone">
+                <i class="fa-solid fa-bell"></i>
+            </button>
 
             <!-- Controla a visibilidade do menu de configurações -->
             <input type="checkbox" id="mudar-menu-config" aria-hidden="true" class="menu-config__input">
@@ -147,18 +151,21 @@
             <!-- Container para as tags -->
             <div class="livros__tags">
                 <button class="global__botao-primario">Todos</button>
-                <button class="global__botao-primario">Romance</button>
-                <button class="global__botao-primario">Ficção</button>
-                <button class="global__botao-primario">História</button>
-                <button class="global__botao-primario">Biografia</button>
-                <button class="global__botao-primario">Autoajuda</button>
+                <button class="global__botao-secundario">Romance</button>
+                <button class="global__botao-secundario">Ficção</button>
+                <button class="global__botao-secundario">História</button>
+                <button class="global__botao-secundario">Biografia</button>
+                <button class="global__botao-secundario">Autoajuda</button>
             </div>
 
             <!-- Container para os livros -->
-            <div class="livros__container" id="livros__container">
+            <div class="livros__info" id="livros__info">
                 <!-- Mensagem de erro para caso os livros não carregarem -->
                 <div class="livros__erro" id="livros__erro">
                     <p class="erro__mensagem" id="erro__mensagem"></p>
+                </div>
+                <div class="livros__container" id="livros__container">
+
                 </div>
             </div>
         </section>

@@ -30,6 +30,7 @@
 /* Altura mínima do site */
 html, body {
     min-height: 100dvh;
+    max-width: 100%;
 }
 
 /* Estilo do botão primario */
@@ -208,7 +209,7 @@ header .barra-pesquisa {
 
     background-color: var(--cor-texto-terciaria);
 
-    padding: .3rem  .5rem;
+    padding: .3rem .5rem;
     border-radius: 10px;
 }
 
@@ -351,4 +352,39 @@ header .adicionais .menu-config__conteudo #menu-config__email {
     text-align: center;
     color: var(--cor-texto-primaria);
     font-weight: 500;
+}
+
+@media screen and (max-width: 680px) {
+    header {
+        position: relative;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        max-width: 100%;
+        height: 130px;
+
+        padding: .5rem;
+    }
+
+    header .menu-principal {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+    }
+
+    header .adicionais {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    header .barra-pesquisa {
+        position: absolute;
+        bottom: .5rem;
+        left: .5rem;
+        right: .5rem;
+
+        height: 50px;
+    }
 }
