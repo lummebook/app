@@ -4,6 +4,7 @@ import {
     abrirVenda,
     carregarConfiguracoes,
     desconectarUsuario,
+    deletarUsuario,
 } from "../js/main.js";
 
 // Cria a função para chamar outras funções assim que a página carregar
@@ -18,6 +19,9 @@ function inicializarFuncoes() {
 async function carregarLivroDoCarrinho () {
     // Pega o ID do usuário
     const idUsuario = localStorage.getItem("idUsuario");
+    if (!idUsuario) {
+        return;
+    }
 
     // Pega os elementos do container e da mensagem de erro
     const erroContainer = document.getElementById("livros__erro");
@@ -99,7 +103,7 @@ async function carregarLivroDoCarrinho () {
             livrosContainer.appendChild(div);
 
             produtosPreco.textContent = `R$${soma.toFixed(2)}`;
-            totalPreco.textContent = `R$${(soma - 10).toFixed(2)}`;
+            totalPreco.textContent = `R$${(soma + 10).toFixed(2)}`;
         }
     } catch (erro) {
         erroMensagem.textContent =
@@ -113,18 +117,9 @@ async function removerLivroDoCarrinho(idLivro) {
     const popupContainer = document.getElementById("popup");
     const popupMensagem = document.getElementById("popup__mensagem");
 
-    // Pega o ID do usuário
+    // Pega o ID do usuário salvo se existir
     const idUsuario = localStorage.getItem("idUsuario");
     if (!idUsuario) {
-        // Mensagem de erro caso aconteça
-        popupContainer.style.display = "block";
-        popupMensagem.textContent = "Erro ao adicionar livro ao carrinho";
-
-        // Esconde a mensagem após 3 segundos
-        setTimeout(() => {
-            popupContainer.style.display = "none";
-            popupMensagem.textContent = "";
-        }, 3000);
         return;
     }
 
@@ -186,3 +181,4 @@ document.querySelector(".js-abrir-venda").addEventListener("click", abrirVenda);
 document
     .querySelector(".js-desconectar-usuario")
     .addEventListener("click", desconectarUsuario);
+document.querySelector(".js-deletar-usuario").addEventListener("click", deletarUsuario);

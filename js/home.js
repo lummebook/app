@@ -4,6 +4,7 @@ import {
     abrirVenda,
     carregarConfiguracoes,
     desconectarUsuario,
+    deletarUsuario
 } from "./main.js";
 
 // Cria a função para chamar outras funções assim que a página carregar
@@ -160,3 +161,4 @@ document.querySelector(".js-abrir-venda").addEventListener("click", abrirVenda);
 document
     .querySelector(".js-desconectar-usuario")
     .addEventListener("click", desconectarUsuario);
+document.querySelector(".js-deletar-usuario").addEventListener("click", deletarUsuario);

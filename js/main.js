@@ -7,12 +7,63 @@ export function desconectarUsuario() {
     window.location.href = "login.html";
 }
 
-// Cria a função para carregar as informações do usuário
-export async function carregarConfiguracoes() {
+export async function deletarUsuario () {
+    console.log("Deletar")
+    // Pede confirmação ao usuário
+    const confirmacao = confirm("Deseja mesmo deletar sua conta?");
+    if (!confirmacao) {
+        return;
+    }
+
     // Pega o ID do usuário salvo se existir
     const idUsuario = localStorage.getItem("idUsuario");
 
     // Se o ID não existir, interrompe a função
+    if (!idUsuario) {
+        return;
+    }
+
+    // Pega os elementos do container e da mensagem
+    const popupContainer = document.getElementById("popup");
+    const popupMensagem = document.getElementById("popup__mensagem");
+
+    // Tenta remover o livro do carrinho no 'try'
+    // Se der erro, cai no 'catch'
+    try {
+        // Tenta deletar a conta do usuário
+        const resposta = await fetch(
+            `http://localhost:8080/usuarios/${idUsuario}`,
+            {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
+        // Caso não achar o usuário, lança erro
+        if (!resposta.ok) {
+            throw new Error();
+        }
+
+        // Troca para a página de login
+        abrirLogin();
+    } catch (erro) {
+        popupContainer.style.display = "block";
+        popupMensagem.textContent = "Erro ao deletar conta.";
+
+        // Esconde a mensagem após 3 segundos
+        setTimeout(() => {
+            popupContainer.style.display = "none";
+            popupMensagem.textContent = "";
+        }, 3000);
+    }
+}
+
+// Cria a função para carregar as informações do usuário
+export async function carregarConfiguracoes() {
+    // Pega o ID do usuário salvo se existir
+    const idUsuario = localStorage.getItem("idUsuario");
     if (!idUsuario) {
         return;
     }
@@ -44,7 +95,7 @@ export function abrirVenda() {
 }
 
 // Cria a função para trocar para página de carrinho
-export function abrirCarrinho () {
+export function abrirCarrinho() {
     // Troca para a tela de carrinho
     window.location.href = "carrinho.html";
 }
