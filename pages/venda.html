@@ -10,18 +10,24 @@
 
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png"> <!-- Favicon do site -->
 
-    <script src="../js/venda.js" defer></script> <!-- Carrega o JS dessa página -->
+    <script type="module" src="../js/main.js" defer></script> <!-- JS geral -->
+    <script type="module" src="../js/venda.js" defer></script> <!-- Carrega o JS dessa página -->
 </head>
 <body>
     <main>
+        <!-- Popup para mensagens gerais -->
+        <div class="popup">
+            <p class="popup__mensagem" id="popup__mensagem"></p>
+        </div>
+        
         <section class="formulario-livro">
-            <div class="botao-voltar"><button class="global__botao-secundario" onclick="abrirHome()">Voltar</button></div>
+            <div class="botao-voltar"><button class="global__botao-secundario js-abrir-home">Voltar</button></div>
 
             <h1>Venda de livro</h1>
             <p>Preencha as informações abaixo para vender um novo livro</p>
 
             <!-- Formulário para vender um livro -->
-            <form action="" method="POST" onsubmit="venderLivro(event)" class="form">
+            <form action="" method="POST" class="form js-vender-livro">
                 <div>
                     <!-- Container do campo -->
                     <p class="form__campo">

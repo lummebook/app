@@ -4,22 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumme - Home</title>
-
+    <title>Lumme - Carrinho</title>
 
     <link rel="stylesheet" href="../styles/main.css"> <!-- CSS geral -->
-    <link rel="stylesheet" href="../styles/home.css"> <!-- CSS dessa página -->
+    <link rel="stylesheet" href="../styles/carrinho.css"> <!-- CSS dessa página -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <!-- Ícones importados -->
 
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png"> <!-- Favicon do site -->
 
     <script type="module" src="../js/main.js" defer></script> <!-- JS geral -->
-    <script type="module" src="../js/home.js" defer></script> <!-- Carrega o JS dessa página -->
-
+    <script type="module" src="../js/carrinho.js" defer></script> <!-- Carrega o JS dessa página -->
 </head>
 
-<body class="js-inicializar-funcoes">
+<body>
     <header>
         <!-- Menu que abre e fecha usando HTML e CSS -->
         <div class="menu-principal">
@@ -131,30 +129,53 @@
 
     <main>
         <!-- Popup para mensagens gerais -->
-        <div class="popup" id="popup">
-            <p class="popup__mensagem" id="popup__mensagem"></p>
+        <div class="popup">
+            <p class="popup__texto" id="popup__texto"></p>
         </div>
 
-        <!-- Container para os livros e as tags -->
-        <section class="livros">
-            <!-- Container para as tags -->
-            <div class="livros__tags">
-                <button class="global__botao-primario">Todos</button>
-                <button class="global__botao-primario">Romance</button>
-                <button class="global__botao-primario">Ficção</button>
-                <button class="global__botao-primario">História</button>
-                <button class="global__botao-primario">Biografia</button>
-                <button class="global__botao-primario">Autoajuda</button>
-            </div>
+        <div class="carrinho-container">
+            <div class="carrinho__info">
+                <h2>Aqui está seu carrinho</h2>
+                <hr>
 
-            <!-- Container para os livros -->
-            <div class="livros__container" id="livros__container">
                 <!-- Mensagem de erro para caso os livros não carregarem -->
                 <div class="livros__erro" id="livros__erro">
                     <p class="erro__mensagem" id="erro__mensagem"></p>
                 </div>
+
+                <div class="carrinho__livros" id="carrinho__livros">
+
+                </div>
             </div>
-        </section>
+
+            <div class="carrinho__resumo">
+                <h2>Resumo da sua compra</h2>
+                <hr>
+
+                <p class="resumo-campo">
+                    <span>Produtos: </span>
+                    <span>
+                            <span id="resumo-produtos-preco"></span>
+                    </span>
+                </p>
+                <p class="resumo-campo">
+                    <span>Frete: </span>
+                    <span>
+                        <span id="resumo-frete-preco">10,00</span>
+                    </span>
+                </p>
+                <p class="resumo-campo resumo-total">
+                    <span>Total: </span>
+                    <span>
+                        <span id="resumo-total-preco"></span>
+                    </span>
+                </p>
+
+                <div class="resumo-botao">
+                    <button class="global__botao-primario">Finalizar compra</button>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 

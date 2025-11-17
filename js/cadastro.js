@@ -1,20 +1,12 @@
+import { abrirLogin, abrirHome } from "../js/main.js";
+
 // Cria a função para limpar mensagem de erro ao mudar o valor do input
-function limparMensagemDeErro () {
+function limparMensagemDeErro() {
     // Pega o parágrafo da mensagem de erro
     const cadastroMensagem = document.getElementById("erro__mensagem");
 
     cadastroMensagem.textContent = ""; // Tira a mensagem
-    cadastroMensagem.style.opacity = "0"; // Esconde a mensagem da tela  
-}
-
-// Cria a função para trocar para página inicial
-function abrirHome() {
-    window.location.href = "home.html";
-}
-
-// Cria a função para trocar para página de login
-function abrirLogin() {
-    window.location.href = "login.html";
+    cadastroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
 }
 
 // Cria a função para cadastrar um usuário
@@ -61,15 +53,14 @@ async function cadastrarUsuario(event) {
         }
 
         const retorno = await resposta.json(); // Pega os dados enviados
-        localStorage.setItem("idUsuario", JSON.stringify(retorno.idUsuario)); // Armazena o ID do usuário
+        localStorage.setItem("idUsuario", retorno.idUsuario); // Armazena o ID do usuário
 
         cadastroMensagem.textContent = ""; // Tira a mensagem
         cadastroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
 
         abrirHome(); // Vai para página inicial
-    }
-    // Caso a requisição der erro, cai no catch
-    catch (erro) {
+    } catch (erro) {
+        // Caso a requisição der erro, cai no catch
         cadastroMensagem.textContent = "Erro na requisição. Tente novamente."; // Muda a mensagem
         cadastroMensagem.style.opacity = "1"; // Mostra a mensagem na tela
         console.error(erro); // Mostra mensagem do erro no console
@@ -81,3 +72,14 @@ async function cadastrarUsuario(event) {
         }, 3000);
     }
 }
+
+// Adiciona as funções aos elementos
+document
+    .querySelector(".js-cadastrar-usuario")
+    .addEventListener("submit", (event) => cadastrarUsuario(event));
+document
+    .querySelector(".js-limpar-mensagem-de-erro")
+    .addEventListener("input", limparMensagemDeErro);
+document
+    .querySelector(".js-abrir-login")
+    .addEventListener("click", abrirLogin);

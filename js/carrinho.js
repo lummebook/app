@@ -1,49 +1,71 @@
 import {
-    abrirCarrinho,
     abrirHome,
+    abrirCarrinho,
     abrirVenda,
     carregarConfiguracoes,
     desconectarUsuario,
-} from "./main.js";
+} from "../js/main.js";
 
 // Cria a função para chamar outras funções assim que a página carregar
 function inicializarFuncoes() {
     // Chama a função para carregar informações do usuário
     carregarConfiguracoes();
 
-    // Chama a função para retornar os livros registrados
-    carregarLivrosRegistrados();
+    // Chama a função para carregar os livros do carrinho
+    carregarLivroDoCarrinho();
 }
 
-// Cria a função para retornar os livros registrados
-async function carregarLivrosRegistrados() {
+async function carregarLivroDoCarrinho () {
+    // Pega o ID do usuário
+    const idUsuario = localStorage.getItem("idUsuario");
+
     // Pega os elementos do container e da mensagem de erro
     const erroContainer = document.getElementById("livros__erro");
     const erroMensagem = document.getElementById("erro__mensagem");
 
+    // Pega os elementos do valor dos produtos, do frete e do total
+    const produtosPreco = document.getElementById("resumo-produtos-preco");
+    const totalPreco = document.getElementById("resumo-total-preco");
+    const fretePreco = document.getElementById("resumo-frete-preco");
+
     // Mostra a mensagem de carregamento na tela
     erroMensagem.textContent = "Carregando...";
 
-    // Tenta retornar os livros registrados no 'try'
+    // Tenta retornar os livros do carrinho no 'try'
     // Se der erro, cai no 'catch'
     try {
-        const resposta = await fetch("http://localhost:8080/livros");
+        // Recupera os livros do carrinho
+        const resposta = await fetch(
+            `http://localhost:8080/usuarios/${idUsuario}/carrinho`
+        );
 
         // Transforma os dados retornados
-        const livrosRetornados = await resposta.json();
-        if (livrosRetornados.length === 0) {
-            erroMensagem.textContent = "Nenhum livro registrado.";
+        const livros = await resposta.json();
+        if (livros.length === 0) {
+            produtosPreco.textContent = `R$0,00`;
+            totalPreco.textContent = "R$0,00";
+            fretePreco.textContent = "R$0,00";
+
+            erroMensagem.textContent = "Nenhum livro adicionado ao carrinho.";
             return;
         }
+
+        console.log(livros);
 
         // Esconde a mensagem de erro
         erroContainer.style.display = "none";
 
         // Pega o container dos livros
-        const livrosContainer = document.getElementById("livros__container");
+        const livrosContainer = document.getElementById("carrinho__livros");
+
+        // Preço total dos livros
+        let soma = 0;
 
         // Percorre todos os livros retornados
-        for (const livro of livrosRetornados) {
+        for (const livro of livros) {
+            // Calcula o valor total
+            soma += livro.preco
+
             // Cria o container do livro
             const div = document.createElement("div");
 
@@ -56,30 +78,28 @@ async function carregarLivrosRegistrados() {
             // Adiciona os elementos internos
             div.innerHTML = `
                 <div class="livro__imagem"></div>
-                <h3 class="livro__titulo">${livro.titulo}</h3>
-                <h4 class="livro__autor">${livro.autor}</h4>
-                <p class="livro__preco">R$${livro.preco.toFixed(2)}</p>
-                <p class="livro__quant">${livro.quantidade} em estoque</p>
-                <div class="livro__botao-detalhes-container">
-                    <button class="global__botao-primario js-abrir-detalhes">Detalhes</button>
+                <div class="livro__conteudo">
+                    <h3 class="livro__titulo">${livro.titulo}</h3>
+                    <h4 class="livro__autor">${livro.autor}</h4>
+                    <p class="livro__preco">R$${livro.preco.toFixed(2)}</p>
+                    <p class="livro__quantidade">${livro.quantidade} em estoque</p>
                 </div>
-                <div class="livro__botao-carrinho-container">
-                    <button class="global__botao-secundario livro__botao-carrinho js-adicionar-ao-carrinho">Para o carrinho</button>
+                <div class="livro__botao-remover-carrinho">
+                    <button class="global__botao-secundario js-remover-livro">Remover do carrinho</button>
                 </div>
             `;
 
-            // Adiciona as funções dos botões
-            div.querySelector(".js-abrir-detalhes").addEventListener(
+            // Adiciona a função ao botão
+            div.querySelector(".js-remover-livro").addEventListener(
                 "click",
-                () => abrirDetalhes(livro.idLivro)
-            );
-            div.querySelector(".js-adicionar-ao-carrinho").addEventListener(
-                "click",
-                () => adicionarAoCarrinho(livro.idLivro)
+                () => removerLivroDoCarrinho(livro.idLivro)
             );
 
-            // Adiciona o container do livro no HTML
+            // Adiciona o livro ao container
             livrosContainer.appendChild(div);
+
+            produtosPreco.textContent = `R$${soma.toFixed(2)}`;
+            totalPreco.textContent = `R$${(soma - 10).toFixed(2)}`;
         }
     } catch (erro) {
         erroMensagem.textContent =
@@ -88,7 +108,7 @@ async function carregarLivrosRegistrados() {
     }
 }
 
-async function adicionarAoCarrinho(idLivro) {
+async function removerLivroDoCarrinho(idLivro) {
     // Pega os elementos do container e da mensagem
     const popupContainer = document.getElementById("popup");
     const popupMensagem = document.getElementById("popup__mensagem");
@@ -96,6 +116,7 @@ async function adicionarAoCarrinho(idLivro) {
     // Pega o ID do usuário
     const idUsuario = localStorage.getItem("idUsuario");
     if (!idUsuario) {
+        // Mensagem de erro caso aconteça
         popupContainer.style.display = "block";
         popupMensagem.textContent = "Erro ao adicionar livro ao carrinho";
 
@@ -107,35 +128,38 @@ async function adicionarAoCarrinho(idLivro) {
         return;
     }
 
-    // Tenta adicionar o livro no carrinho no 'try'
+    // Tenta remover o livro do carrinho no 'try'
     // Se der erro, cai no 'catch'
     try {
-        // Tenta adicionar o livro no carrinho
+        // Tenta remover o livro do carrinho
         const resposta = await fetch(
             `http://localhost:8080/usuarios/${idUsuario}/carrinho`,
             {
-                method: "POST",
+                method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({idLivro}),
+                body: JSON.stringify({ idLivro }),
             }
         );
 
-        // Se não encontrar o usuário, lança erro
+        // Caso não achar o usuário, lança erro
         if (!resposta.ok) {
             throw new Error();
         }
 
         // Mostra a mensagem de sucesso
         popupContainer.style.display = "block";
-        popupMensagem.textContent = "Livro adicionado ao carrinho.";
+        popupMensagem.textContent = "Livro removido do carrinho.";
 
         // Esconde a mensagem após 3 segundos
         setTimeout(() => {
             popupContainer.style.display = "none";
             popupMensagem.textContent = "";
         }, 3000);
+
+        // Recarrega os livros
+        carregarLivroDoCarrinho();
     } catch (erro) {
         // Se der erro, mostra mensagem
         popupContainer.style.display = "block";
@@ -149,6 +173,8 @@ async function adicionarAoCarrinho(idLivro) {
         }, 3000);
     }
 }
+
+
 
 // Adiciona as funções aos elementos
 document.addEventListener("DOMContentLoaded", inicializarFuncoes);

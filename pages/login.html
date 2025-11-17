@@ -10,7 +10,8 @@
     
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png"> <!-- Favicon do site -->
 
-    <script src="../js/login.js" defer></script> <!-- Importa o JS dessa página -->
+    <script type="module" src="../js/main.js" defer></script> <!-- JS geral -->
+    <script type="module" src="../js/login.js" defer></script> <!-- Importa o JS dessa página -->
 </head>
 <body>
     <!-- Conteúdo principal -->
@@ -20,14 +21,14 @@
             <p class="login__subtitulo">Conectar-se</p>
     
             <!-- Formulário para conectar-->
-            <form action="" method="POST" class="form" onsubmit="conectarUsuario(event)">
+            <form action="" method="POST" class="form js-conectar-usuario">
                 <p class="form__campo">
                     <label for="form__input-email">Email:</label> <!-- Texto do campo -->
-                    <input type="email" id="form__input-email" required oninput="limparMensagemDeErro()"> <!-- Campo -->
+                    <input type="email" id="form__input-email" class="js-limpar-mensagem-de-erro" required> <!-- Campo -->
                 </p>
                 <p class="form__campo">
                     <label for="form__input-senha">Senha:</label>
-                    <input type="password" id="form__input-senha" required oninput="limparMensagemDeErro()">
+                    <input type="password" id="form__input-senha" class="js-limpar-mensagem-de-erro" required>
                 </p>
                 <!-- Link para trocar de senha -->
                 <a href="#trocar-senha" class="form__trocar-senha">Esqueceu a senha?</a>
@@ -44,7 +45,7 @@
             <!-- Container para fazer o cadastro -->
             <div class="login__container-cadastrar">
                 <p class="login__texto-cadastrar">Ainda não possui uma conta?</p>
-                <button class="global__botao-secundario" onclick="abrirCadastro()">Cadastre-se</button>
+                <button class="global__botao-secundario js-abrir-cadastro">Cadastre-se</button>
             </div>
         </section>
     </main>

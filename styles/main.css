@@ -3,11 +3,11 @@
 
 /* Variáveis CSS globais */
 :root {
-    --cor-destaque-primaria: #0074D7;
-    --cor-destaque-secundaria: #122C63;
+    --cor-destaque-primaria: #1777cc;
+    --cor-destaque-secundaria: #071227;
 
-    --cor-fundo-primaria: #F4F7FF;
-    --cor-fundo-secundaria: #C1C4CC;
+    --cor-fundo-primaria: #ecf1ff;
+    --cor-fundo-secundaria: #9a9ea8;
 
     --cor-texto-primaria: #0E0F11;
     --cor-texto-secundaria: #252E33;
@@ -67,4 +67,288 @@ html, body {
     background-color: transparent;
 
     cursor: pointer;
+}
+
+/* Header do site */
+header {
+    display: flex;
+    justify-content: space-between;
+
+    height: 65px;
+
+    padding: 1rem 1.5rem;
+
+    background-color: var(--cor-destaque-primaria);
+}
+
+/* Controla a visibilidade do menu */
+header .menu-principal__input {
+    display: none;
+}
+header .menu-principal__input:checked ~ .menu-principal__logo {
+    display: flex;
+}
+header .menu-principal__input:checked ~ .menu-principal__nav {
+    display: flex;
+}
+header .menu-principal__input:checked ~ .menu-principal__camada {
+    display: block;
+}
+
+/* "Botão" do menu */
+header .menu-principal__label {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-inline: 2px;
+}
+
+header .menu-principal__label .fa-solid {
+    color: var(--cor-texto-terciaria);
+}
+
+/* Parte do topo do menu */
+header .menu-principal__logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 250px;
+    height: 65px;
+
+    padding: .5rem;
+
+    background-color: var(--cor-destaque-primaria);
+}
+
+/* Configura a logo do site */
+header .menu-principal__logo img {
+    height: 100%;
+
+    border-radius: 100%;
+}
+
+/* Navegação do menu */
+header .menu-principal__nav {
+    position: fixed;
+    left: 0;
+    top: 65px;
+    bottom: 0;
+    z-index: 100;
+
+    display: none;
+
+    width: 250px;
+
+    padding: 1rem .5rem;
+
+    background-color: var(--cor-fundo-primaria);
+}
+
+/* Camada escura quando se abre o menu */
+header .menu-principal__camada, 
+header .menu-config__camada {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+
+    display: none;
+
+    background-color: rgba(0, 0, 0, 0.466);
+}
+
+/* Lista com os botões */
+header .menu-principal__nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+
+    height: 100%;
+
+    list-style: none;
+}
+
+/* Botão da lista */
+header .menu-principal__nav .nav__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .5rem;
+
+    margin-bottom: 1rem;
+
+    cursor: pointer;
+}
+
+/* Cor dos ícones */
+header .menu-principal__nav .fa-solid {
+    color: var(--cor-texto-primaria);
+}
+header .menu-principal__logo .menu-principal__label {
+    color: var(--cor-texto-primaria);
+}
+
+/* Barra de pesquisa */
+header .barra-pesquisa {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    background-color: var(--cor-texto-terciaria);
+
+    padding: .3rem  .5rem;
+    border-radius: 10px;
+}
+
+header .barra-pesquisa label {
+    cursor: pointer;
+}
+
+/* Ícone da barra de pesquisa */
+header .barra-pesquisa .fa-solid {
+    color: var(--cor-texto-primaria);
+}
+
+/* Input da barra de pesquisa */
+header .barra-pesquisa input {
+    min-width: 300px;
+
+    border: none;
+
+    background-color: transparent;
+
+    font-size: 1rem;
+}
+header .barra-pesquisa input:focus {
+    outline: none;
+}
+
+/* Opções do final da parte superior */
+header .adicionais {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Muda a cor dos ícones do menu de configurações */
+header .adicionais .fa-solid {
+    color: var(--cor-texto-terciaria);
+}
+
+/* Esconde o input */
+header .adicionais .menu-config__input {
+    display: none;
+}
+
+/* Configura o botão do menu de configurações */
+header .adicionais .menu-config__label {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2px;
+}
+
+/* Muda a cor do ícone de fechar o menu */
+header .adicionais .menu-config__input:checked ~ .menu-config__icone .fa-solid {
+    color: var(--cor-texto-primaria);
+}
+
+/* Controla a visibilidade do menu de configurações */
+header .adicionais .menu-config__input:checked ~ .menu-config__icone {
+    display: flex;
+}
+header .adicionais .menu-config__input:checked ~ .menu-config__conteudo {
+    display: flex;
+}
+header .adicionais .menu-config__input:checked ~ .menu-config__camada {
+    display: block;
+}
+
+/* Parte do topo do menu */
+header .adicionais .menu-config__icone {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    
+    width: 250px;
+    height: 65px;
+
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 1rem;
+
+    background-color: var(--cor-fundo-primaria);
+}
+
+/* Configura o menu de configurações */
+header .adicionais .menu-config__conteudo {
+    position: fixed;
+    top: 65px;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+
+    display: none;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+
+    width: 250px;
+
+    padding: .5rem;
+
+    background-color: var(--cor-fundo-primaria);
+}
+
+/* Estiliza o nome do usuário */
+header .adicionais .menu-config__conteudo #menu-config__nome {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Estiliza o email do usuário */
+header .adicionais .menu-config__conteudo #menu-config__email {
+    font-style: italic;
+}
+
+.popup {
+    display: none;
+
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    
+    width: 300px;
+    height: fit-content;
+
+    border-radius: 15px;
+    padding: 1rem;
+
+    background-color: #83a6ff;
+}
+
+.popup__mensagem {
+    text-align: center;
+    color: var(--cor-texto-primaria);
+    font-weight: 500;
 }

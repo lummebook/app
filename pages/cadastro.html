@@ -10,7 +10,8 @@
 
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png"> <!-- Favicon do site -->
 
-    <script src="../js/cadastro.js" defer></script> <!-- Importa o JS dessa página -->
+    <script type="module" src="../js/main.js" defer></script> <!-- JS geral -->
+    <script type="module" src="../js/cadastro.js" defer></script> <!-- Importa o JS dessa página -->
 </head>
 
 <body>
@@ -20,7 +21,7 @@
             <p class="cadastro__subtitulo">Conectar-se</p>
 
             <!-- Formulário para cadastrar-->
-            <form action="" method="POST" class="form" onsubmit="cadastrarUsuario(event)">
+            <form action="" method="POST" class="form js-cadastrar-usuario">
                 <!-- Campos do formulário -->
                 <p class="form__campo">
                     <label for="form__input-nome">Nome:</label> <!-- Texto do campo -->
@@ -32,11 +33,11 @@
                 </p>
                 <p class="form__campo">
                     <label for="form__input-senha">Senha:</label> <!-- Texto do campo -->
-                    <input type="password" id="form__input-senha" required oninput="limparMensagemDeErro()"> <!-- Campo -->
+                    <input type="password" id="form__input-senha" class="js-limpar-mensagem-de-erro" required> <!-- Campo -->
                 </p>
                 <p class="form__campo">
                     <label for="form__input-confirmar-senha">Confirme sua senha:</label> <!-- Texto do campo -->
-                    <input type="password" id="form__input-confirmar-senha" required oninput="limparMensagemDeErro()"> <!-- Campo -->
+                    <input type="password" id="form__input-confirmar-senha" class="js-limpar-mensagem-de-erro" required> <!-- Campo -->
                 </p>
 
                 <!-- Mensagem de erro para email ou senha incorretos -->
@@ -51,7 +52,7 @@
             <!-- Container para fazer o login -->
             <div class="cadastro__container-conectar">
                 <p class="cadastro__texto-conectar">Já possui uma conta?</p>
-                <button class="global__botao-secundario" onclick="abrirLogin()">Conecte-se</button>
+                <button class="global__botao-secundario js-abrir-login">Conecte-se</button>
             </div>
         </section>
     </main>

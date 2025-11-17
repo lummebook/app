@@ -1,7 +1,4 @@
-// Cria a função para trocar para página inicial
-function abrirHome() {
-    window.location.href = "home.html";
-}
+import { abrirHome } from "./main.js";
 
 // Cria a função para vender um livro
 async function venderLivro(event) {
@@ -17,7 +14,9 @@ async function venderLivro(event) {
     const titulo = document.getElementById("form__input-titulo").value.trim();
     const autor = document.getElementById("form__input-autor").value.trim();
     const preco = document.getElementById("form__input-preco").value;
-    const quantidade = Number(document.getElementById("form__input-quant").value);
+    const quantidade = Number(
+        document.getElementById("form__input-quant").value
+    );
 
     // Bloco try/catch para impedir erro de aparecer para o usuário
     try {
@@ -52,3 +51,9 @@ async function venderLivro(event) {
         }, 3000);
     }
 }
+
+// Adiciona as funções aos elementos
+document.querySelector(".js-abrir-home").addEventListener("click", abrirHome);
+document
+    .querySelector(".js-vender-livro")
+    .addEventListener("submit", (event) => venderLivro(event));
