@@ -35,7 +35,6 @@ async function carregarLivroDoCarrinho() {
 
     // Mostra a mensagem de carregamento na tela
     erroMensagem.textContent = "Carregando...";
-    console.log("11111");
 
     // Tenta retornar os livros do carrinho no 'try'
     // Se der erro, cai no 'catch'
@@ -47,6 +46,10 @@ async function carregarLivroDoCarrinho() {
 
         // Transforma os dados retornados
         const livros = await resposta.json();
+
+        // Pega o container dos livros
+        const livrosContainer = document.getElementById("carrinho__livros");
+        livrosContainer.innerHTML = "";
 
         // Padroniza os dados caso não haja livros
         if (livros.length === 0) {
@@ -68,9 +71,6 @@ async function carregarLivroDoCarrinho() {
 
         // Esconde a mensagem de erro
         erroContainer.style.display = "none";
-
-        // Pega o container dos livros
-        const livrosContainer = document.getElementById("carrinho__livros");
 
         // Preço e quantidade total dos livros
         let soma = 0;
@@ -178,10 +178,6 @@ async function removerLivroDoCarrinho(idLivro) {
             popupContainer.style.display = "none";
             popupMensagem.textContent = "";
         }, 3000);
-
-        // Pega o container dos livros
-        const livrosContainer = document.getElementById("carrinho__livros");
-        livrosContainer.innerHTML = "";
 
         // Recarrega os livros
         carregarLivroDoCarrinho();

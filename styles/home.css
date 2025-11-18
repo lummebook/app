@@ -10,8 +10,9 @@ body {
 }
 
 main {
-    padding: 1.5rem;
-    padding-bottom: 0;
+    padding: 1rem;
+    padding-top: 0;
+    padding-bottom: 2rem;
 }
 
 /* Div para conter as tags e os livros */
@@ -20,9 +21,11 @@ main {
     flex-direction: column;
 
     min-height: calc(90dvh - 1rem);
-    min-width: 100%;
+    width: 100%;
+    max-width: 1200px;
 
-    border-radius: 10px 10px 0 0;
+    border-radius: 0 0 10px 10px;
+    margin-inline: auto;
 
     background-color: var(--cor-fundo-secundaria);
 }
@@ -37,7 +40,7 @@ main {
     width: 100%;
     max-width: 100%;
 
-    border-radius: 10px 10px 0 0;
+    border-radius: 0;
     padding: .5rem;
 
     background-color: var(--cor-fundo-primaria);
@@ -48,7 +51,7 @@ main {
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: .5rem;
+    gap: 1rem;
 
     padding: 1rem;
 }
@@ -157,7 +160,7 @@ main {
     right: .5rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 723px) and (max-width: 768px) {
     main {
         padding: 0;
     }
@@ -208,7 +211,7 @@ main {
     }
 }
 
-@media screen and (max-width: 722px) {
+@media screen and (min-width: 481px) and (max-width: 722px) {
     .livro {
         max-height: 200px;
     }
@@ -247,7 +250,7 @@ main {
 
     .livro .global__botao-primario,
     .livro .global__botao-secundario {
-        font-size: .7rem;
+        font-size: .8rem;
     }
 
     .livro-botoes-container {
