@@ -28,7 +28,7 @@ async function conectarUsuario(event) {
     try {
         // Realiza a requisição para validar o usuário
         const resposta = await fetch(
-            "http://localhost:8080/usuarios/auth/conectar",
+            "https://lumme-api.onrender.com/usuarios/auth/conectar",
             {
                 method: "POST",
                 headers: {

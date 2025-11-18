@@ -41,7 +41,7 @@ async function carregarLivroDoCarrinho() {
     try {
         // Recupera os livros do carrinho
         const resposta = await fetch(
-            `http://localhost:8080/usuarios/${idUsuario}/carrinho`
+            `https://lumme-api.onrender.com/usuarios/${idUsuario}/carrinho`
         );
 
         // Transforma os dados retornados
@@ -154,7 +154,7 @@ async function removerLivroDoCarrinho(idLivro) {
     try {
         // Tenta remover o livro do carrinho
         const resposta = await fetch(
-            `http://localhost:8080/usuarios/${idUsuario}/carrinho`,
+            `https://lumme-api.onrender.com/usuarios/${idUsuario}/carrinho`,
             {
                 method: "DELETE",
                 headers: {

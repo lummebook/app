@@ -35,7 +35,7 @@ async function cadastrarUsuario(event) {
     try {
         // Realiza a requisição para cadastrar o usuário
         const resposta = await fetch(
-            "http://localhost:8080/usuarios/auth/cadastrar",
+            "https://lumme-api.onrender.com/usuarios/auth/cadastrar",
             {
                 method: "POST",
                 headers: {

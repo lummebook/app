@@ -23,7 +23,7 @@ async function venderLivro(event) {
         const idVendedor = localStorage.getItem("idUsuario");
 
         // Realiza a requisição para colocar o livro à venda
-        const resposta = await fetch("http://localhost:8080/livros", {
+        const resposta = await fetch("https://lumme-api.onrender.com/livros", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

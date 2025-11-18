@@ -32,7 +32,7 @@ export async function deletarUsuario () {
     try {
         // Tenta deletar a conta do usuário
         const resposta = await fetch(
-            `http://localhost:8080/usuarios/${idUsuario}`,
+            `https://lumme-api.onrender.com/usuarios/${idUsuario}`,
             {
                 method: "DELETE",
                 headers: {
@@ -69,7 +69,7 @@ export async function carregarConfiguracoes() {
     }
 
     // Retorna os dados do usuário usando o ID
-    const resposta = await fetch(`http://localhost:8080/usuarios/${idUsuario}`);
+    const resposta = await fetch(`https://lumme-api.onrender.com/usuarios/${idUsuario}`);
 
     // Se der erro, interrompe a função
     if (!resposta.ok) {

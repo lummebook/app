@@ -28,7 +28,7 @@ async function carregarLivrosRegistrados() {
     // Tenta retornar os livros registrados no 'try'
     // Se der erro, cai no 'catch'
     try {
-        const resposta = await fetch("http://localhost:8080/livros");
+        const resposta = await fetch("https://lumme-api.onrender.com/livros");
 
         // Transforma os dados retornados
         const livrosRetornados = await resposta.json();
@@ -117,7 +117,7 @@ async function adicionarAoCarrinho(idLivro) {
     try {
         // Tenta adicionar o livro no carrinho
         const resposta = await fetch(
-            `http://localhost:8080/usuarios/${idUsuario}/carrinho`,
+            `https://lumme-api.onrender.com/usuarios/${idUsuario}/carrinho`,
             {
                 method: "POST",
                 headers: {
