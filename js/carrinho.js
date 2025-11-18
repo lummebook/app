@@ -195,6 +195,10 @@ async function removerLivroDoCarrinho(idLivro) {
     }
 }
 
+async function finalizarCompra() {
+    
+}
+
 // Adiciona as funções aos elementos
 document.addEventListener("DOMContentLoaded", inicializarFuncoes);
 document.querySelector(".js-abrir-home").addEventListener("click", abrirHome);

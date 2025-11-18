@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="../styles/main.css"> <!-- CSS geral -->
     <link rel="stylesheet" href="../styles/home.css"> <!-- CSS dessa página -->
+    <link rel="stylesheet" href="../styles/detalhes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <!-- Ícones importados -->
 
@@ -145,6 +146,36 @@
         <div class="popup" id="popup">
             <p class="popup__mensagem" id="popup__mensagem"></p>
         </div>
+
+        <div class="detalhes-container">
+            <!-- Ícone para fechar o menu -->
+            <button tabindex="0" class="global__botao-icone detalhes__botao-detalhes js-fechar-detalhes">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="detalhes__imagem"></div>
+            <h2 class="detalhes__titulo"></h2>
+            <h3 class="detalhes__auto"></h3>
+
+            <p class="detalhes__preco"></p>
+            <p class="detalhes__quantidade"></p>
+            <p class="detalhes__descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptas
+                distinctio quidem! Veritatis reprehenderit quo iste eaque unde voluptas repudiandae facilis incidunt,
+                sapiente soluta adipisci accusantium omnis dicta necessitatibus numquam.
+            </p>
+
+            <div class="detalhes-botoes-container">
+                <div class="detalhes__botao-detalhes-container">
+                    <button class="global__botao-primario detalhes__botao-carrinho js-adicionar-ao-carrinho">Para o
+                        carrinho</button>
+                </div>
+                <div class="detalhes__botao-carrinho-container">
+                    <button class="global__botao-secundario detalhes__botao-comprar">Comprar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="detalhes__camada"></div>
 
         <!-- Container para os livros e as tags -->
         <section class="livros">

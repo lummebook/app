@@ -4,7 +4,8 @@ import {
     abrirVenda,
     carregarConfiguracoes,
     desconectarUsuario,
-    deletarUsuario
+    deletarUsuario,
+    abrirDetalhes
 } from "./main.js";
 
 // Cria a função para chamar outras funções assim que a página carregar
@@ -14,6 +15,33 @@ function inicializarFuncoes() {
 
     // Chama a função para retornar os livros registrados
     carregarLivrosRegistrados();
+}
+
+async function abrirDetalhes(idLivro) {
+    // Pega os elementos do container e da mensagem
+    const popupContainer = document.getElementById("popup");
+    const popupMensagem = document.getElementById("popup__mensagem");
+
+    const resposta = await fetch(`https://lumme-api.onrender.com/livros/${idLivro}`);
+    if (!resposta.ok) {
+        popupContainer.style.display = "block";
+        popupMensagem.textContent = "Erro ao abrir detalhes do livro.";
+
+        // Esconde a mensagem após 3 segundos
+        setTimeout(() => {
+            popupContainer.style.display = "none";
+            popupMensagem.textContent = "";
+        }, 3000);
+        return;
+    }
+
+
+    const livro = await resposta.json();
+
+    const tituloTexto = document.querySelector(".detalhes__titulo");
+    const autorTexto = document.querySelector(".detalhes__autor");
+    const precotexto = document.querySelector(".detalhes__preco");
+    const quantidadetexto = document.querySelector(".detalhes__quantidade");
 }
 
 // Cria a função para retornar os livros registrados
@@ -123,7 +151,7 @@ async function adicionarAoCarrinho(idLivro) {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({idLivro}),
+                body: JSON.stringify({ idLivro }),
             }
         );
 
@@ -155,6 +183,11 @@ async function adicionarAoCarrinho(idLivro) {
     }
 }
 
+async function esconderDetalhes() {
+    document.querySelector(".detalhes-container").style.display = "none";
+    document.querySelector(".detalhes__camada").style.display = "none";
+}
+
 // Adiciona as funções aos elementos
 document.addEventListener("DOMContentLoaded", inicializarFuncoes);
 document.querySelector(".js-abrir-home").addEventListener("click", abrirHome);
@@ -166,3 +199,4 @@ document
     .querySelector(".js-desconectar-usuario")
     .addEventListener("click", desconectarUsuario);
 document.querySelector(".js-deletar-usuario").addEventListener("click", deletarUsuario);
+document.querySelector(".js-fechar-detalhes").addEventListener("click", esconderDetalhes);

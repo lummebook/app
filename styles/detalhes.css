@@ -1,0 +1,36 @@
+.detalhes__botao-detalhes {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    height: 65px;
+}
+
+.detalhes-container {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 300px;
+
+    padding-inline: 1rem;
+
+    background-color: var(--cor-fundo-primaria);
+}
+
+.detalhes__camada {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+
+    display: block;
+
+    background-color: rgba(0, 0, 0, 0.466);
+}

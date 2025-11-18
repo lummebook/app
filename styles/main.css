@@ -82,6 +82,10 @@ header {
     background-color: var(--cor-destaque-primaria);
 }
 
+header .fa-solid {
+    font-size: 1.5rem
+}
+
 /* Controla a visibilidade do menu */
 header .menu-principal__input {
     display: none;
