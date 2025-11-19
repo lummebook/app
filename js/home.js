@@ -5,7 +5,6 @@ import {
     carregarConfiguracoes,
     desconectarUsuario,
     deletarUsuario,
-    abrirDetalhes
 } from "./main.js";
 
 // Cria a função para chamar outras funções assim que a página carregar
@@ -22,7 +21,9 @@ async function abrirDetalhes(idLivro) {
     const popupContainer = document.getElementById("popup");
     const popupMensagem = document.getElementById("popup__mensagem");
 
-    const resposta = await fetch(`https://lumme-api.onrender.com/livros/${idLivro}`);
+    const resposta = await fetch(
+        `https://lumme-api.onrender.com/livros/${idLivro}`
+    );
     if (!resposta.ok) {
         popupContainer.style.display = "block";
         popupMensagem.textContent = "Erro ao abrir detalhes do livro.";
@@ -35,13 +36,38 @@ async function abrirDetalhes(idLivro) {
         return;
     }
 
+    const detalhesContainer = document.getElementById("detalhes-container");
+    const detalhesCamada = document.getElementById("detalhes__camada");
+
+    const botaoComprar = document.getElementById("detalhes__botao-comprar");
 
     const livro = await resposta.json();
 
-    const tituloTexto = document.querySelector(".detalhes__titulo");
-    const autorTexto = document.querySelector(".detalhes__autor");
-    const precotexto = document.querySelector(".detalhes__preco");
-    const quantidadetexto = document.querySelector(".detalhes__quantidade");
+    const tituloTexto = document.getElementById("detalhes__titulo");
+    const autorTexto = document.getElementById("detalhes__autor");
+    const precotexto = document.getElementById("detalhes__preco");
+    const quantidadetexto = document.getElementById("detalhes__quantidade");
+    const descricaoTexto = document.getElementById("detalhes__descricao");
+
+    tituloTexto.textContent = livro.titulo;
+    autorTexto.textContent = livro.autor;
+    precotexto.textContent = `R$${livro.preco.toFixed(2)}`;
+    quantidadetexto.textContent = `${livro.quantidade} em estoque`;
+    descricaoTexto.textContent = `
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt recusandae,
+        et illo beatae amet suscipit quod ab quia facere quo alias libero rerum vero
+        provident ratione maxime eos vitae dolorum
+    `;
+
+    botaoComprar.dataset.idLivro = livro.idLivro;
+
+    detalhesContainer.style.display = "block";
+    detalhesCamada.style.display = "block";
+}
+
+async function fecharDetalhes() {
+    document.getElementById("detalhes-container").style.display = "none";
+    document.getElementById("detalhes__camada").style.display = "none";
 }
 
 // Cria a função para retornar os livros registrados
@@ -183,10 +209,7 @@ async function adicionarAoCarrinho(idLivro) {
     }
 }
 
-async function esconderDetalhes() {
-    document.querySelector(".detalhes-container").style.display = "none";
-    document.querySelector(".detalhes__camada").style.display = "none";
-}
+async function comprarLivro() {}
 
 // Adiciona as funções aos elementos
 document.addEventListener("DOMContentLoaded", inicializarFuncoes);
@@ -198,5 +221,12 @@ document.querySelector(".js-abrir-venda").addEventListener("click", abrirVenda);
 document
     .querySelector(".js-desconectar-usuario")
     .addEventListener("click", desconectarUsuario);
-document.querySelector(".js-deletar-usuario").addEventListener("click", deletarUsuario);
-document.querySelector(".js-fechar-detalhes").addEventListener("click", esconderDetalhes);
+document
+    .querySelector(".js-deletar-usuario")
+    .addEventListener("click", deletarUsuario);
+document
+    .querySelector(".js-fechar-detalhes")
+    .addEventListener("click", fecharDetalhes);
+document
+    .querySelector(".js-comprar-livro")
+    .addEventListener("click", comprarLivro);

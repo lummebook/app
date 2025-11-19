@@ -33,6 +33,21 @@ async function venderLivro(event) {
             }),
         });
 
+        if (!resposta.ok) {
+            // Muda a mensagem
+            vendaMensagem.textContent = "Dados inválidos inseridos.";
+
+            // Mostra a mensagem na tela
+            vendaMensagem.style.opacity = "1";
+
+            // Após 3 segundos, esconde a mensagem
+            setTimeout(() => {
+                vendaMensagem.textContent = ""; // Tira a mensagem
+                vendaMensagem.style.opacity = "0"; // Esconde a mensagem da tela
+            }, 3000);
+            return;
+        }
+
         abrirHome(); // Volta para página inicial
     } catch (erro) {
         // Muda a mensagem

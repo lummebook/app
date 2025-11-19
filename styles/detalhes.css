@@ -1,3 +1,12 @@
+.detalhes__botao-container {
+    display: flex;
+    align-items: center;
+
+    height: 65px;
+    
+    margin-bottom: 1rem;
+}
+
 .detalhes__botao-detalhes {
     cursor: pointer;
 
@@ -5,32 +14,115 @@
     align-items: center;
     justify-content: flex-start;
 
-    height: 65px;
+    padding: 10px;
 }
 
 .detalhes-container {
+    display: block;
+
     position: fixed;
     z-index: 100;
     top: 0;
     right: 0;
     bottom: 0;
 
-    width: 300px;
+    width: 100%;
+    max-width: 400px;
 
     padding-inline: 1rem;
 
     background-color: var(--cor-fundo-primaria);
 }
 
+.detalhes__conteudo {
+    display: flex;
+    gap: 1rem;
+}
+
+.detalhes__imagem {
+    width: 120px;
+    aspect-ratio: 3 / 4;
+
+    border-radius: 10px;
+    margin-bottom: 0;
+
+    background-color: gray;
+}
+
+.detalhes__titulo {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.detalhes__autor {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    color: var(--cor-texto-secundaria);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.detalhes__preco {
+    margin-top: 1rem;
+
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.detalhes__quantidade {
+    font-size: 1rem;
+    color: var(--cor-texto-secundaria);
+}
+
+.detalhes-botoes-container {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    width: 100%;
+
+    margin-top: 2rem;
+}
+
+.detalhes__botao-carrinho,
+.detalhes__botao-comprar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    font-size: .9rem;
+}
+
+.detalhes__descricao {
+    margin-block: 1.5rem;
+    padding-block: 1rem;
+    border-top: 2px solid var(--cor-texto-primaria);
+}
+
 .detalhes__camada {
+    display: block;
+
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 50;
-
-    display: block;
 
     background-color: rgba(0, 0, 0, 0.466);
 }

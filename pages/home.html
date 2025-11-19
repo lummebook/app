@@ -147,35 +147,45 @@
             <p class="popup__mensagem" id="popup__mensagem"></p>
         </div>
 
-        <div class="detalhes-container">
+        <div class="detalhes-container" id="detalhes-container">
             <!-- Ícone para fechar o menu -->
-            <button tabindex="0" class="global__botao-icone detalhes__botao-detalhes js-fechar-detalhes">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <div class="detalhes__botao-container">
+                <button tabindex="0" class="global__botao-icone detalhes__botao-detalhes js-fechar-detalhes">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
 
-            <div class="detalhes__imagem"></div>
-            <h2 class="detalhes__titulo"></h2>
-            <h3 class="detalhes__auto"></h3>
-
-            <p class="detalhes__preco"></p>
-            <p class="detalhes__quantidade"></p>
-            <p class="detalhes__descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptas
-                distinctio quidem! Veritatis reprehenderit quo iste eaque unde voluptas repudiandae facilis incidunt,
-                sapiente soluta adipisci accusantium omnis dicta necessitatibus numquam.
-            </p>
-
-            <div class="detalhes-botoes-container">
-                <div class="detalhes__botao-detalhes-container">
-                    <button class="global__botao-primario detalhes__botao-carrinho js-adicionar-ao-carrinho">Para o
-                        carrinho</button>
+            <div class="detalhes__conteudo">
+                <div class="detalhes__conteudo-visual">
+                    <div class="detalhes__imagem" id="detalhes__imagem"></div>
                 </div>
-                <div class="detalhes__botao-carrinho-container">
-                    <button class="global__botao-secundario detalhes__botao-comprar">Comprar</button>
+                <div class="detalhes__conteudo-textual">
+                    <h2 class="detalhes__titulo" id="detalhes__titulo">E Não Sobrou Nenhum</h2>
+                    <h3 class="detalhes__autor" id="detalhes__autor">Agatha Christie</h3>
+
+                    <p class="detalhes__preco" id="detalhes__preco">R$54,50</p>
+                    <p class="detalhes__quantidade" id="detalhes__quantidade">32 em estoque</p>
                 </div>
             </div>
+
+            <div class="detalhes-botoes-container">
+                <div class="detalhes__botao-carrinho-container">
+                    <button class="global__botao-primario detalhes__botao-comprar js-comprar-livro"
+                        id="detalhes__botao-comprar">Comprar</button>
+                </div>
+                <div class="detalhes__botao-detalhes-container">
+                    <button class="global__botao-secundario detalhes__botao-carrinho js-adicionar-ao-carrinho">Para o
+                        carrinho</button>
+                </div>
+            </div>
+
+            <p class="detalhes__descricao" id="detalhes__descricao">Lorem, ipsum dolor sit amet consectetur
+                adipisicing elit. Ullam eligendi alias veritatis soluta saepe at autem recusandae magni iusto
+                aliquid odit, ex impedit vitae, voluptatibus illum nam maxime culpa maiores?
+            </p>
         </div>
 
-        <div class="detalhes__camada"></div>
+        <div class="detalhes__camada" id="detalhes__camada"></div>
 
         <!-- Container para os livros e as tags -->
         <section class="livros">
