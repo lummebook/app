@@ -3,10 +3,10 @@ import { abrirLogin, abrirHome } from "../js/main.js";
 // Cria a função para limpar mensagem de erro ao mudar o valor do input
 function limparMensagemDeErro() {
     // Pega o parágrafo da mensagem de erro
-    const cadastroMensagem = document.getElementById("erro__mensagem");
+    const erroMensagem = document.getElementById("erro");
 
-    cadastroMensagem.textContent = ""; // Tira a mensagem
-    cadastroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
+    erroMensagem.textContent = ""; // Tira a mensagem
+    erroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
 }
 
 // Cria a função para cadastrar um usuário
@@ -22,12 +22,12 @@ async function cadastrarUsuario(event) {
         .value.trim();
 
     // Pega o parágrafo da mensagem de erro
-    const cadastroMensagem = document.getElementById("erro__mensagem");
+    const erroMensagem = document.getElementById("erro");
 
     // Confirma se as senhas digitadas são iguais
     if (senha !== confirmarSenha) {
-        cadastroMensagem.textContent = "Senhas diferentes digitadas."; // Muda a mensagem
-        cadastroMensagem.style.opacity = "1"; // Mostra a mensagem na tela
+        erroMensagem.textContent = "Senhas diferentes digitadas."; // Muda a mensagem
+        erroMensagem.style.opacity = "1"; // Mostra a mensagem na tela
         return; // Termina a função
     }
 
@@ -47,29 +47,24 @@ async function cadastrarUsuario(event) {
 
         // Se o cadastro falhar
         if (!resposta.ok) {
-            cadastroMensagem.textContent = "Dados inválidos inseridos."; // Muda a mensagem
-            cadastroMensagem.style.opacity = "1"; // Mostra a mensagem na tela
+            console.error(resposta);
+            erroMensagem.textContent = "Dados inválidos inseridos."; // Muda a mensagem
+            erroMensagem.style.opacity = "1"; // Mostra a mensagem na tela
             return; // Termina a função
         }
 
         const retorno = await resposta.json(); // Pega os dados enviados
         localStorage.setItem("idUsuario", retorno.idUsuario); // Armazena o ID do usuário
 
-        cadastroMensagem.textContent = ""; // Tira a mensagem
-        cadastroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
+        erroMensagem.textContent = ""; // Tira a mensagem
+        erroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
 
         abrirHome(); // Vai para página inicial
     } catch (erro) {
         // Caso a requisição der erro, cai no catch
-        cadastroMensagem.textContent = "Erro na requisição. Tente novamente."; // Muda a mensagem
-        cadastroMensagem.style.opacity = "1"; // Mostra a mensagem na tela
+        erroMensagem.textContent = "Erro na requisição. Tente novamente."; // Muda a mensagem
+        erroMensagem.style.opacity = "1"; // Mostra a mensagem na tela
         console.error(erro); // Mostra mensagem do erro no console
-
-        // Após 3 segundos, esconde a mensagem
-        setTimeout(() => {
-            cadastroMensagem.textContent = ""; // Tira a mensagem
-            cadastroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
-        }, 3000);
     }
 }
 

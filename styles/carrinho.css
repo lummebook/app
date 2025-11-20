@@ -1,20 +1,14 @@
-.fa-solid {
-    font-size: 1.5rem;
-}
-
 body {
     background-color: var(--cor-fundo-secundaria);
-}
-
-main {
-    padding-block: 1rem;
-    padding-inline: 7rem;
 }
 
 .carrinho-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+
+    padding-block: 1rem;
+    padding-inline: 7rem;
 }
 
 .carrinho__info {
@@ -131,34 +125,31 @@ main {
 }
 
 @media screen and (min-width: 901px) and (max-width: 1100px) {
-    main {
+    .carrinho-container {
         padding-inline: 1rem;
     }
 }
 
 @media screen and (min-width: 721px) and (max-width: 900px) {
-    main {
-        padding-inline: 5rem;
-    }
 
     .carrinho-container {
         display: flex;
         flex-direction: column-reverse;
 
         width: 100%;
+
+        padding-inline: 5rem;
     }
 }
 
 @media screen and (max-width: 720px) {
-    main {
-        padding-inline: 1rem;
-    }
-    
     .carrinho-container {
         display: flex;
         flex-direction: column-reverse;
 
         width: 100%;
+
+        padding-inline: 1rem;
     }
 
     .carrinho__resumo {

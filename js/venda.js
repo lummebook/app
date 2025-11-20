@@ -5,10 +5,10 @@ async function venderLivro(event) {
     event.preventDefault();
 
     // Pega o parágrafo da mensagem de erro
-    const vendaMensagem = document.getElementById("erro__mensagem");
+    const erroMensagem = document.getElementById("erro");
 
-    vendaMensagem.textContent = ""; // Tira a mensagem
-    vendaMensagem.style.opacity = "0"; // Esconde a mensagem da tela
+    erroMensagem.textContent = ""; // Tira a mensagem
+    erroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
 
     // Pega o valor dos campos do formulário
     const titulo = document.getElementById("form__input-titulo").value.trim();
@@ -34,16 +34,18 @@ async function venderLivro(event) {
         });
 
         if (!resposta.ok) {
+            console.error(resposta);
+
             // Muda a mensagem
-            vendaMensagem.textContent = "Dados inválidos inseridos.";
+            erroMensagem.textContent = "Dados inválidos inseridos.";
 
             // Mostra a mensagem na tela
-            vendaMensagem.style.opacity = "1";
+            erroMensagem.style.opacity = "1";
 
             // Após 3 segundos, esconde a mensagem
             setTimeout(() => {
-                vendaMensagem.textContent = ""; // Tira a mensagem
-                vendaMensagem.style.opacity = "0"; // Esconde a mensagem da tela
+                erroMensagem.textContent = ""; // Tira a mensagem
+                erroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
             }, 3000);
             return;
         }
@@ -51,18 +53,18 @@ async function venderLivro(event) {
         abrirHome(); // Volta para página inicial
     } catch (erro) {
         // Muda a mensagem
-        vendaMensagem.textContent = "Erro na requisição. Tente novamente.";
+        erroMensagem.textContent = "Erro na requisição. Tente novamente.";
 
         // Mostra a mensagem na tela
-        vendaMensagem.style.opacity = "1";
+        erroMensagem.style.opacity = "1";
 
         // Mostra mensagem do erro no console
         console.error(erro);
 
         // Após 3 segundos, esconde a mensagem
         setTimeout(() => {
-            vendaMensagem.textContent = ""; // Tira a mensagem
-            vendaMensagem.style.opacity = "0"; // Esconde a mensagem da tela
+            erroMensagem.textContent = ""; // Tira a mensagem
+            erroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
         }, 3000);
     }
 }

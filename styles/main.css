@@ -334,6 +334,30 @@ header .adicionais .menu-config__conteudo #menu-config__email {
     font-style: italic;
 }
 
+body:has(.menu-config__input:checked) {
+    overflow: hidden;
+}
+body:has(.menu-principal__input:checked) {
+    overflow: hidden;
+}
+
+.erro {
+    display: none;
+    width: 100%;
+}
+
+/* Mensagem de erro */
+.erro__mensagem {
+    max-width: 350px;
+
+    margin-inline: auto;
+    margin-top: 2rem;
+
+    color: var(--cor-texto-primaria);
+    font-weight: 500;
+    text-align: center;
+}
+
 .popup {
     display: none;
 

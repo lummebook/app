@@ -18,7 +18,7 @@
 }
 
 .detalhes-container {
-    display: block;
+    display: none;
 
     position: fixed;
     z-index: 100;
@@ -115,7 +115,7 @@
 }
 
 .detalhes__camada {
-    display: block;
+    display: none;
 
     position: fixed;
     top: 0;

@@ -4,22 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumme - Home</title>
+    <title>Lumme - Seus Livros</title>
 
     <link rel="stylesheet" href="../styles/main.css"> <!-- CSS geral -->
-    <link rel="stylesheet" href="../styles/home.css"> <!-- CSS dessa página -->
-    <link rel="stylesheet" href="../styles/detalhes.css">
+    <link rel="stylesheet" href="../styles/livros.css"> <!-- CSS dessa página -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <!-- Ícones importados -->
 
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png"> <!-- Favicon do site -->
 
     <script type="module" src="../js/main.js" defer></script> <!-- JS geral -->
-    <script type="module" src="../js/home.js" defer></script> <!-- Carrega o JS dessa página -->
-
+    <script type="module" src="../js/livros.js" defer></script> <!-- Carrega o JS dessa página -->
 </head>
 
-<body class="js-inicializar-funcoes">
+<body>
     <header>
         <!-- Menu que abre e fecha usando HTML e CSS -->
         <div class="menu-principal">
@@ -150,69 +148,19 @@
             <p class="popup__mensagem" id="popup__mensagem"></p>
         </div>
 
-        <div class="detalhes-container" id="detalhes-container">
-            <!-- Ícone para fechar o menu -->
-            <div class="detalhes__botao-container">
-                <button tabindex="0" class="global__botao-icone detalhes__botao-detalhes js-fechar-detalhes">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
+        <div class="livros">
+            <h2>Aqui estão todos seus livros à venda</h2>
+            <hr>
+
+            <!-- Mensagem de erro para caso os livros não carregarem -->
+            <div class="erro" id="erro">
+                <p class="erro__mensagem" id="erro__mensagem"></p>
             </div>
 
-            <div class="detalhes__conteudo">
-                <div class="detalhes__conteudo-visual">
-                    <div class="detalhes__imagem" id="detalhes__imagem"></div>
-                </div>
-                <div class="detalhes__conteudo-textual">
-                    <h2 class="detalhes__titulo" id="detalhes__titulo"></h2>
-                    <h3 class="detalhes__autor" id="detalhes__autor"></h3>
+            <div class="livros__container" id="livros__container">
 
-                    <p class="detalhes__preco" id="detalhes__preco"></p>
-                    <p class="detalhes__quantidade" id="detalhes__quantidade"></p>
-                </div>
             </div>
-
-            <div class="detalhes-botoes-container">
-                <div class="detalhes__botao-carrinho-container">
-                    <button class="global__botao-primario detalhes__botao-comprar js-comprar-livro"
-                        id="detalhes__botao-comprar">Comprar</button>
-                </div>
-                <div class="detalhes__botao-detalhes-container">
-                    <button class="global__botao-secundario detalhes__botao-carrinho js-adicionar-ao-carrinho" id="detalhes__botao-carrinho">Para o
-                        carrinho</button>
-                </div>
-            </div>
-
-            <p class="detalhes__descricao" id="detalhes__descricao">Lorem, ipsum dolor sit amet consectetur
-                adipisicing elit. Ullam eligendi alias veritatis soluta saepe at autem recusandae magni iusto
-                aliquid odit, ex impedit vitae, voluptatibus illum nam maxime culpa maiores?
-            </p>
         </div>
-
-        <div class="detalhes__camada" id="detalhes__camada"></div>
-
-        <!-- Container para os livros e as tags -->
-        <section class="livros">
-            <!-- Container para as tags -->
-            <div class="livros__tags">
-                <button class="global__botao-primario">Todos</button>
-                <button class="global__botao-secundario">Romance</button>
-                <button class="global__botao-secundario">Ficção</button>
-                <button class="global__botao-secundario">História</button>
-                <button class="global__botao-secundario">Biografia</button>
-                <button class="global__botao-secundario">Autoajuda</button>
-            </div>
-
-            <!-- Container para os livros -->
-            <div class="livros__info" id="livros__info">
-                <!-- Mensagem de erro para caso os livros não carregarem -->
-                <div class="erro" id="erro">
-                    <p class="erro__mensagem" id="erro__mensagem"></p>
-                </div>
-                <div class="livros__container" id="livros__container">
-
-                </div>
-            </div>
-        </section>
     </main>
 </body>
 

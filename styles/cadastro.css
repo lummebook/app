@@ -78,7 +78,7 @@ main {
 }
 
 /* Container para mensagem de erro */
-.form__erro {
+.erro {
     width: 350px;
     height: 25px;
 
