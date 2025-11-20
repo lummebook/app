@@ -139,9 +139,9 @@ async function carregarLivrosRegistrados() {
             // Adiciona os elementos internos
             div.innerHTML = `
                 <div class="livro__imagem"></div>
-                <div class="livro__conteudo>
-                    <h3 class="livro__titulo">${livro.titulo}</h3>
-                    <h4 class="livro__autor">${livro.autor}</h4>
+                <div class="livro__conteudo">
+                    <h2 class="livro__titulo">${livro.titulo}</h2>
+                    <h3 class="livro__autor">${livro.autor}</h3>
                     <p class="livro__preco">R$${livro.preco.toFixed(2)}</p>
                     <p class="livro__quant">${livro.quantidade} em estoque</p>
                     <div class="livro-botoes-container">
@@ -149,7 +149,7 @@ async function carregarLivrosRegistrados() {
                             <button class="global__botao-primario js-abrir-detalhes">Detalhes</button>
                         </div>
                         <div class="livro__botao-carrinho-container">
-                            <button class="global__botao-secundario livro__botao-carrinho js-adicionar-ao-carrinho">Para o carrinho</button>
+                            <button class="global__botao-secundario livro__botao-carrinho js-adicionar-ao-carrinho">Carrinho</button>
                         </div>
                     </div>
                 </div>

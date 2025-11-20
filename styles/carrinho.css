@@ -41,6 +41,7 @@ body {
     width: 110px;
 
     margin-right: 1rem;
+    border-radius: 5px;
 
     background-color: var(--cor-fundo-secundaria);
 }

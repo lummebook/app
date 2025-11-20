@@ -4,11 +4,6 @@ body {
     background-color: var(--cor-destaque-secundaria);
 }
 
-/* Ajusta os ícones */
-.fa-solid {
-    font-size: 1.5rem;
-}
-
 main {
     padding: 1rem;
     padding-top: 0;
@@ -27,7 +22,7 @@ main {
     border-radius: 0 0 10px 10px;
     margin-inline: auto;
 
-    background-color: var(--cor-fundo-secundaria);
+    background-color: var(--cor-fundo-primaria);
 }
 
 /* Configura o container das tags */
@@ -41,6 +36,7 @@ main {
     max-width: 100%;
 
     border-radius: 0;
+    border-bottom: 2px solid var(--cor-texto-primaria);
     padding: .5rem;
 
     background-color: var(--cor-fundo-primaria);
@@ -50,10 +46,14 @@ main {
 .livros__container {
     display: grid;
     justify-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1rem;
+    column-gap: 3rem;
 
     padding: 1rem;
+    padding-top: 2rem;
+
+    background-color: var(--cor-fundo-primaria);
 }
 
 /* Container para mensagem de erro */
@@ -71,31 +71,33 @@ main {
 /* Configura o container de um livro */
 .livro {
     position: relative;
+    display: flex;
 
-    min-width: 250px;
     width: 100%;
-    max-width: 330px;
-    aspect-ratio: 2 / 2.7;
-    max-height: 400px;
+    height: 170px;
 
-    border-radius: 10px;
-    padding: .5rem;
-
-    background-color: var(--cor-fundo-primaria);
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--cor-texto-primaria);
 }
 
-/* Configura a imagem do livro */
 .livro__imagem {
-    width: 100%;
-    aspect-ratio: 3 / 2;
+    height: 100%;
+    width: 110px;
+    min-width: 110px;
+    max-width: 110px;
 
-    border-radius: 10px 10px 0 0;
-    margin-bottom: .5rem;
+    margin-right: 1rem;
+    border-radius: 5px;
 
-    background-color: gray;
+    background-color: var(--cor-fundo-secundaria);
 }
 
-/* Estiliza o título */
+.livro__conteudo {
+    position: relative;
+
+    width: 100%;
+}
+
 .livro__titulo {
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -105,11 +107,12 @@ main {
     text-overflow: ellipsis;
     overflow: hidden;
 
+    max-width: 200px;
+
     font-weight: 500;
     font-size: 1.1rem;
 }
 
-/* Estiliza o nome do autor */
 .livro__autor {
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -124,7 +127,6 @@ main {
     font-size: 1rem;
 }
 
-/* Estiliza o preço do livro */
 .livro__preco {
     margin-top: .5rem;
 
@@ -132,158 +134,99 @@ main {
     font-size: 1.3rem;
 }
 
-/* Estiliza o número da quantidade de livros disponíveis */
 .livro__quant {
-    font-size: .9rem;
+    font-size: 1rem;
     color: var(--cor-texto-secundaria);
 }
 
-/* Estiliza o botão de detalhes */
-.livro__botao-detalhes-container {
+.livro-botoes-container {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: flex-end;
+
     position: absolute;
-    bottom: .5rem;
+    top: 0;
+    right: 0;
 }
 
-/* Estiliza o botão de adicionar ao carrinho */
-.livro__botao-carrinho-container {
-    position: absolute;
-    bottom: .5rem;
-    right: .5rem;
-}
-
-@media screen and (min-width: 723px) and (max-width: 768px) {
+@media screen and (max-width: 1100px) {
     main {
-        padding: 0;
-    }
-
-    .livros__tags {
-        border-radius: 0;
+        padding-inline: 7rem;
     }
 
     .livros__container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: .5rem;
-
-        padding: .5rem;
-        border-radius: 0;
-    }
-
-    .livro {
         display: flex;
-        flex-direction: row;
-        gap: .5rem;
-
-        width: 100%;
-        height: 220px;
-        max-width: 400px;
-    }
-
-    .livro__imagem {
-        width: 130px;
-        aspect-ratio: 3 / 4;
-
-        border-radius: 10px;
-        margin-bottom: 0;
+        flex-direction: column;
     }
 
     .livro-botoes-container {
-        position: absolute;
-        bottom: .5rem;
+        flex-direction: row;
+        align-items: flex-start;
 
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
+        left: 0;
+        top: auto;
+        bottom: 0;
+
+        height: fit-content;
     }
 
-    .livro__botao-carrinho-container,
-    .livro__botao-detalhes-container {
-        position: static;
+    .livro__titulo {
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+
+        max-width: 400px;
     }
 }
 
-@media screen and (min-width: 481px) and (max-width: 722px) {
-    .livros__container {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: .5rem;
-
-        width: 100%;
-
-        padding: .5rem;
-        border-radius: 0;
-    }
-
-    .livro {
-        display: flex;
-        flex-direction: row;
-        gap: .5rem;
-
-        width: 100%;
-        height: 220px;
-        max-width: 400px;
-    }
-
-    .livro__imagem {
-        width: 130px;
-        aspect-ratio: 3 / 4;
-
-        border-radius: 10px;
-        margin-bottom: 0;
+@media screen and (max-width: 768px) {
+    main {
+        padding-inline: 1rem;
     }
 
     .livro-botoes-container {
-        position: static;
-    }
-
-    /* Estiliza o botão de detalhes */
-    .livro__botao-detalhes-container {
-        position: absolute;
-        bottom: .5rem;
-    }
-
-    /* Estiliza o botão de adicionar ao carrinho */
-    .livro__botao-carrinho-container {
-        position: absolute;
-        bottom: .5rem;
-        right: .5rem;
+        height: 50px;
+        align-items: flex-end;
     }
 }
 
 @media screen and (max-width: 480px) {
-    main {
-        padding: 0;
-    }
-
-    .livros__container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: .5rem;
-
-        padding: .5rem;
-    }
-
-    .livro .global__botao-primario,
-    .livro .global__botao-secundario {
-        font-size: .8rem;
-    }
-
-    .livro-botoes-container {
+    .livro__conteudo {
         position: static;
     }
 
-    /* Estiliza o botão de detalhes */
-    .livro__botao-detalhes-container {
-        position: absolute;
-        bottom: .5rem;
+    .livro {
+        position: relative;
+
+        height: 230px;
     }
 
-    /* Estiliza o botão de adicionar ao carrinho */
-    .livro__botao-carrinho-container {
+    .livro__imagem {
+        height: 150px;
+        width: 110px;
+
+        flex: none;
+
+        border-radius: 5px;
+    }
+
+    .livro__conteudo {
+        flex: auto;
+    }
+
+    .livro__titulo {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+
+        max-width: 200px;
+    }
+
+    .livro__conteudo-principal {
+        flex-direction: column;
+    }
+
+    .livro-botoes-container {
         position: absolute;
-        bottom: .5rem;
-        right: .5rem;
+        bottom: 1rem;
     }
 }

@@ -1,15 +1,15 @@
 body {
-    background-color: var(--cor-fundo-secundaria);
+    background-color: var(--cor-destaque-secundaria);
 }
 
 main {
-    padding-block: 1rem;
-    padding-inline: 7rem;
+    padding-bottom: 1rem;
+    padding-inline: 1rem;
 }
 
 .livros {
     padding: 1rem;
-    border-radius: 15px;
+    border-radius: 0 0 15px 15px;
 
     background-color: var(--cor-fundo-primaria);
 }
@@ -110,7 +110,11 @@ main {
     right: 0;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1100px) {
+    main {
+        padding-inline: 7rem;
+    }
+    
     .livros__container {
         display: flex;
         flex-direction: column;

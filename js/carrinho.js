@@ -5,6 +5,7 @@ import {
     carregarConfiguracoes,
     desconectarUsuario,
     deletarUsuario,
+    abrirLivrosRegistrados
 } from "../js/main.js";
 
 // Cria a função para chamar outras funções assim que a página carregar
