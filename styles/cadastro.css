@@ -94,6 +94,16 @@ main {
     font-weight: 500;
 }
 
+.cadastro__container-cadastrar {
+    margin-top: 2rem;
+}
+
+.cadastro__container-cadastrar button {
+    padding-inline: 2rem;
+    
+    font-size: 1rem;
+}
+
 /* Container para fazer login */
 .cadastro__container-conectar {
     position: absolute;
@@ -109,7 +119,11 @@ main {
     font-size: .9rem;
 }
 
-@media screen and (min-width: 481px) and (max-width: 1000px) {
+.cadastro__container-conectar button {
+    font-size: .8rem;
+}
+
+@media screen and (max-width: 1000px) {
     main {
         align-items: flex-start;
 
@@ -133,10 +147,8 @@ main {
     }
 
     .cadastro__container-conectar {
-        position: static;
-        transform: translateX(0);
-
-        margin-top: 10rem;
+        position: absolute;
+        transform: translateX(-50%);
     }
 }
 
