@@ -5,8 +5,8 @@ function limparMensagemDeErro () {
     // Pega o parágrafo da mensagem de erro
     const erroMensagem = document.getElementById("erro__mensagem");
 
-    erroMensagem.textContent = ""; // Tira a mensagem
     erroMensagem.style.opacity = "0"; // Esconde a mensagem da tela  
+    erroMensagem.textContent = ""; // Tira a mensagem
 }
 
 // Cria a função para tentar conectar o usuário
@@ -20,8 +20,8 @@ async function conectarUsuario(event) {
     // Pega o parágrafo da mensagem de erro
     const erroMensagem = document.getElementById("erro__mensagem");
 
-    erroMensagem.textContent = ""; // Tira a mensagem
     erroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
+    erroMensagem.textContent = ""; // Tira a mensagem
 
     // Bloco try/catch para impedir erro de aparecer para o usuário
     // Caso a requisição der erro, cai no catch
@@ -50,13 +50,13 @@ async function conectarUsuario(event) {
         const retorno = await resposta.json(); // Pega os dados enviados
         localStorage.setItem("idUsuario", retorno.idUsuario); // Armazena o ID do usuário
 
-        erroMensagem.textContent = ""; // Tira a mensagem
         erroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
+        erroMensagem.textContent = ""; // Tira a mensagem
 
         abrirHome(); // Vai para página inicial
     } catch (erro) {
-        erroMensagem.style.opacity = "1"; // Monstra a mensagem na tela
         erroMensagem.textContent = "Erro na requisição. Tente novamente."; // Muda a mensagem
+        erroMensagem.style.opacity = "1"; // Monstra a mensagem na tela
         console.error(erro); // Mostra mensagem do erro no console
     }
 }

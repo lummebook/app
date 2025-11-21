@@ -4,10 +4,10 @@ import {
     abrirVenda,
     abrirLivrosRegistrados,
     desconectarUsuario,
-    deletarUsuario
- } from "./main.js";
+    deletarUsuario,
+} from "./main.js";
 
-async function retornarLivrosDoUsuario () {
+async function retornarLivrosDoUsuario() {
     // Pega os elementos do container e da mensagem de erro
     const erroContainer = document.getElementById("erro");
     const erroMensagem = document.getElementById("erro__mensagem");
@@ -16,56 +16,40 @@ async function retornarLivrosDoUsuario () {
     const popupContainer = document.getElementById("popup");
     const popupMensagem = document.getElementById("popup__mensagem");
 
-    erroContainer.style.display = "block";
+    const livrosContainer = document.getElementById("livros__container");
+    livrosContainer.innerHTML = "";
+
     erroMensagem.textContent = "Carregando...";
+    erroContainer.style.display = "block";
 
     // Pega o ID do usuário
     const idUsuario = localStorage.getItem("idUsuario");
     if (!idUsuario) {
+        popupMensagem.textContent = "Usuário não conectado.";
         popupContainer.style.display = "block";
-        popupMensagem.textContent = "ID de usuário não fornecido.";
 
-        erroContainer.style.display = "block";
         erroMensagem.textContent = "Erro ao retornar livros. Tente novamente.";
+        erroContainer.style.display = "block";
 
         // Esconde a mensagem após 3 segundos
         setTimeout(() => {
-            erroContainer.style.display = "none";
-            erroMensagem.textContent = "";
-
             popupContainer.style.display = "none";
             popupMensagem.textContent = "";
         }, 3000);
         return;
     }
 
+    erroContainer.style.display = "none";
+    erroMensagem.textContent = "";
+
     try {
         const resposta = await fetch(
             `https://lumme-api.onrender.com/livros/usuario/${idUsuario}`
         );
         if (!resposta.ok) {
-            popupContainer.style.display = "block";
-            popupMensagem.textContent = "Usuário não encontrado.";
-
-            erroContainer.style.display = "block";
-            erroMensagem.textContent =
-                "Erro ao retornar livros. Tente novamente.";
-
-            // Esconde a mensagem após 3 segundos
-            setTimeout(() => {
-                erroContainer.style.display = "none";
-                erroMensagem.textContent = "";
-
-                popupContainer.style.display = "none";
-                popupMensagem.textContent = "";
-            }, 3000);
-            return;
+            throw new Error(resposta);
         }
 
-        erroContainer.style.display = "none";
-        erroMensagem.textContent = "";
-
-        const livrosContainer = document.getElementById("livros__container");
         const livrosRetornados = await resposta.json();
 
         for (const livro of livrosRetornados) {
@@ -98,7 +82,7 @@ async function retornarLivrosDoUsuario () {
             );
             div.querySelector(".js-deletar-livro").addEventListener(
                 "click",
-                () => deletarLivro(livro.idLivro)
+                () => deletarLivro(livro.titulo, livro.idLivro)
             );
 
             // Adiciona o container do livro no HTML
@@ -112,7 +96,47 @@ async function retornarLivrosDoUsuario () {
 
 async function atualizarLivro(idLivro) {}
 
-async function deletarLivro(idLivro) {}
+async function deletarLivro(tituloLivro, idLivro) {
+    // Pega os elementos do container e da mensagem
+    const popupContainer = document.getElementById("popup");
+    const popupMensagem = document.getElementById("popup__mensagem");
+
+    try {
+        // Pede confirmação para deletar o livro
+        const confirmacao = confirm(
+            `Deseja mesmo deletar o livro \"${tituloLivro}\"?`
+        );
+        if (!confirmacao) {
+            return;
+        }
+
+        // Tenta deletar o livro
+        const resposta = await fetch(
+            `https://lumme-api.onrender.com/livros/${idLivro}`,
+            {
+                method: "DELETE",
+            }
+        );
+        if (!resposta.ok) {
+            throw new Error(resposta);
+        }
+
+        popupMensagem.textContent = "Livro deletado com sucesso.";
+        popupContainer.style.display = "block";
+
+        // Recarrega os livros do usuário
+        retornarLivrosDoUsuario();
+    } catch (erro) {
+        popupMensagem.textContent = "Erro ao deletar livro.";
+        popupContainer.style.display = "block";
+        console.error(erro);
+    } finally {
+        setTimeout(() => {
+            popupContainer.style.display = "none";
+            popupMensagem.textContent = "";
+        }, 3000);
+    }
+}
 
 document.addEventListener("DOMContentLoaded", retornarLivrosDoUsuario);
 document.querySelector(".js-abrir-home").addEventListener("click", abrirHome);
@@ -129,4 +153,4 @@ document
 document
     .querySelector(".js-deletar-usuario")
     .addEventListener("click", deletarUsuario);
-document
+document;

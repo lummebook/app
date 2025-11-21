@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,28 +8,31 @@
 
     <link rel="stylesheet" href="../styles/main.css"> <!-- CSS geral -->
     <link rel="stylesheet" href="../styles/login.css"> <!-- CSS dessa página -->
-    
+
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png"> <!-- Favicon do site -->
 
     <script type="module" src="../js/main.js" defer></script> <!-- JS geral -->
     <script type="module" src="../js/login.js" defer></script> <!-- Importa o JS dessa página -->
 </head>
+
 <body>
     <!-- Conteúdo principal -->
     <main id="main">
         <section class="login">
             <h1>Lumme</h1>
             <p class="login__subtitulo">Conectar-se</p>
-    
+
             <!-- Formulário para conectar-->
             <form action="" method="POST" class="form js-conectar-usuario">
                 <p class="form__campo">
                     <label for="form__input-email">Email:</label> <!-- Texto do campo -->
-                    <input type="email" id="form__input-email" class="js-limpar-mensagem-de-erro" required> <!-- Campo -->
+                    <input type="email" autocomplete="email" id="form__input-email" class="js-limpar-mensagem-de-erro" required>
+                    <!-- Campo -->
                 </p>
                 <p class="form__campo">
                     <label for="form__input-senha">Senha:</label>
-                    <input type="password" id="form__input-senha" class="js-limpar-mensagem-de-erro" required>
+                    <input type="password" autocomplete="current-password" id="form__input-senha"
+                        class="js-limpar-mensagem-de-erro" required>
                 </p>
                 <!-- Link para trocar de senha -->
                 <a href="#trocar-senha" class="form__trocar-senha">Esqueceu a senha?</a>
@@ -37,13 +41,13 @@
                 <div class="erro" id="erro">
                     <p class="erro__mensagem" id="erro__mensagem"></p>
                 </div>
-    
+
                 <!-- Botão para fazer o login -->
                 <div class="login__container-conectar">
                     <button class="global__botao-primario" type="submit">Conectar-se</button>
                 </div>
             </form>
-    
+
             <!-- Container para fazer o cadastro -->
             <div class="login__container-cadastrar">
                 <p class="login__texto-cadastrar">Ainda não possui uma conta?</p>
@@ -52,4 +56,5 @@
         </section>
     </main>
 </body>
+
 </html>

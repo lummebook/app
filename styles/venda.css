@@ -7,6 +7,8 @@ body {
 }
 
 .formulario-livro {
+    position: relative;
+
     max-width: 700px;
     width: 100%;
     height: 80dvh;
@@ -84,8 +86,15 @@ body {
     font-weight: 500;
 }
 
+.form-botao-vender {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 /* Estiliza o botão para vender */
-.form button {
+.form-botao-vender button {
     margin-top: 5rem;
 }
 

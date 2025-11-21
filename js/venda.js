@@ -7,8 +7,12 @@ async function venderLivro(event) {
     // Pega o parágrafo da mensagem de erro
     const erroMensagem = document.getElementById("erro");
 
-    erroMensagem.textContent = ""; // Tira a mensagem
     erroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
+    erroMensagem.textContent = ""; // Tira a mensagem
+
+    // Pega os elementos do container e da mensagem
+    const popupContainer = document.getElementById("popup");
+    const popupMensagem = document.getElementById("popup__mensagem");
 
     // Pega o valor dos campos do formulário
     const titulo = document.getElementById("form__input-titulo").value.trim();
@@ -21,6 +25,19 @@ async function venderLivro(event) {
     // Bloco try/catch para impedir erro de aparecer para o usuário
     try {
         const idVendedor = localStorage.getItem("idUsuario");
+        if (!idVendedor) {
+            // Se der erro, mostra mensagem
+            popupMensagem.textContent = "Usuário não conectado.";
+            popupContainer.style.display = "block";
+            console.error(erro);
+
+            // Esconde a mensagem após 3 segundos
+            setTimeout(() => {
+                popupContainer.style.display = "none";
+                popupMensagem.textContent = "";
+            }, 3000);
+            return;
+        }
 
         // Realiza a requisição para colocar o livro à venda
         const resposta = await fetch("https://lumme-api.onrender.com/livros", {
@@ -36,36 +53,26 @@ async function venderLivro(event) {
         if (!resposta.ok) {
             console.error(resposta);
 
-            // Muda a mensagem
-            erroMensagem.textContent = "Dados inválidos inseridos.";
-
             // Mostra a mensagem na tela
+            erroMensagem.textContent = "Dados inválidos inseridos.";
             erroMensagem.style.opacity = "1";
 
             // Após 3 segundos, esconde a mensagem
             setTimeout(() => {
-                erroMensagem.textContent = ""; // Tira a mensagem
                 erroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
+                erroMensagem.textContent = ""; // Tira a mensagem
             }, 3000);
             return;
         }
 
         abrirHome(); // Volta para página inicial
     } catch (erro) {
-        // Muda a mensagem
-        erroMensagem.textContent = "Erro na requisição. Tente novamente.";
-
         // Mostra a mensagem na tela
+        erroMensagem.textContent = "Erro na requisição. Tente novamente.";
         erroMensagem.style.opacity = "1";
 
         // Mostra mensagem do erro no console
         console.error(erro);
-
-        // Após 3 segundos, esconde a mensagem
-        setTimeout(() => {
-            erroMensagem.textContent = ""; // Tira a mensagem
-            erroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
-        }, 3000);
     }
 }
 

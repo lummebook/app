@@ -5,7 +5,7 @@ import {
     carregarConfiguracoes,
     desconectarUsuario,
     deletarUsuario,
-    abrirLivrosRegistrados
+    abrirLivrosRegistrados,
 } from "../js/main.js";
 
 // Cria a função para chamar outras funções assim que a página carregar
@@ -14,27 +14,24 @@ function inicializarFuncoes() {
     carregarConfiguracoes();
 
     // Chama a função para carregar os livros do carrinho
-    carregarLivroDoCarrinho();
+    carregarLivrosDoCarrinho();
 }
 
-async function carregarLivroDoCarrinho() {
+async function carregarLivrosDoCarrinho() {
+    // Pega o container dos livros
+    const livrosContainer = document.getElementById("carrinho__livros");
+    livrosContainer.innerHTML = "";
+
     // Pega os elementos do container e da mensagem de erro
     const erroContainer = document.getElementById("erro");
     const erroMensagem = document.getElementById("erro__mensagem");
-
-    erroContainer.style.display = "block";
     erroMensagem.textContent = "Carregando...";
+    erroContainer.style.display = "block";
 
     // Pega o ID do usuário
     const idUsuario = localStorage.getItem("idUsuario");
     if (!idUsuario) {
-        erroMensagem.textContent = "ID de usuário não fornecido.";
-
-        // Esconde a mensagem após 3 segundos
-        setTimeout(() => {
-            erroContainer.style.display = "none";
-            erroMensagem.textContent = "";
-        }, 3000);
+        erroMensagem.textContent = "Usuário não conectado.";
         return;
     }
 
@@ -52,15 +49,11 @@ async function carregarLivroDoCarrinho() {
             `https://lumme-api.onrender.com/usuarios/${idUsuario}/carrinho`
         );
         if (!resposta.ok) {
-            throw new Error("Erro na requisição.");
+            throw new Error(resposta);
         }
 
         // Transforma os dados retornados
         const livros = await resposta.json();
-
-        // Pega o container dos livros
-        const livrosContainer = document.getElementById("carrinho__livros");
-        livrosContainer.innerHTML = "";
 
         // Padroniza os dados caso não haja livros
         if (livros.length === 0) {
@@ -69,8 +62,8 @@ async function carregarLivroDoCarrinho() {
             totalPreco.textContent = "0,00";
             fretePreco.textContent = "0,00";
 
-            erroContainer.style.display = "block";
             erroMensagem.textContent = "Nenhum livro adicionado ao carrinho.";
+            erroContainer.style.display = "block";
 
             return;
         }
@@ -132,9 +125,9 @@ async function carregarLivroDoCarrinho() {
         console.error(erro);
 
         // Mostra a mensagem de erro
-        erroContainer.style.display = "block";
         erroMensagem.textContent =
             "Houve um erro ao tentar carregar os Livros. Tente novamente.";
+        erroContainer.style.display = "block";
     }
 }
 
@@ -146,8 +139,8 @@ async function removerLivroDoCarrinho(idLivro) {
     // Pega o ID do usuário salvo se existir
     const idUsuario = localStorage.getItem("idUsuario");
     if (!idUsuario) {
+        popupMensagem.textContent = "Usuário não conectado.";
         popupContainer.style.display = "block";
-        popupMensagem.textContent = "ID de usuário não fornecido.";
 
         // Esconde a mensagem após 3 segundos
         setTimeout(() => {
@@ -174,12 +167,12 @@ async function removerLivroDoCarrinho(idLivro) {
 
         // Caso não achar o usuário, lança erro
         if (!resposta.ok) {
-            throw new Error("Erro na requisição.");
+            throw new Error(resposta);
         }
 
         // Mostra a mensagem de sucesso
-        popupContainer.style.display = "block";
         popupMensagem.textContent = "Livro removido do carrinho.";
+        popupContainer.style.display = "block";
 
         // Esconde a mensagem após 3 segundos
         setTimeout(() => {
@@ -188,12 +181,18 @@ async function removerLivroDoCarrinho(idLivro) {
         }, 3000);
 
         // Recarrega os livros
-        carregarLivroDoCarrinho();
+        carregarLivrosDoCarrinho();
     } catch (erro) {
         // Se der erro, mostra mensagem
-        popupContainer.style.display = "block";
         popupMensagem.textContent = "Erro ao adicionar livro ao carrinho";
+        popupContainer.style.display = "block";
         console.error(erro);
+
+        // Esconde a mensagem após 3 segundos
+        setTimeout(() => {
+            popupContainer.style.display = "none";
+            popupMensagem.textContent = "";
+        }, 3000);
     }
 }
 

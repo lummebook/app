@@ -24,9 +24,9 @@ export async function deletarUsuario() {
     // Se o ID não existir, interrompe a função
     if (!idUsuario) {
         // Se der erro, mostra mensagem
+        popupMensagem.textContent = "Usuário não conectado.";
         popupContainer.style.display = "block";
-        popupMensagem.textContent = "ID de usuário não fornecido.";
-        console.log(erro);
+        console.error(erro);
 
         // Esconde a mensagem após 3 segundos
         setTimeout(() => {
@@ -52,15 +52,15 @@ export async function deletarUsuario() {
 
         // Caso não achar o usuário, lança erro
         if (!resposta.ok) {
-            throw new Error("Erro na requisição.");
+            throw new Error(resposta);
         }
 
         // Troca para a página de login
         abrirLogin();
     } catch (erro) {
         console.error(erro);
-        popupContainer.style.display = "block";
         popupMensagem.textContent = "Erro ao deletar conta.";
+        popupContainer.style.display = "block";
 
         // Esconde a mensagem após 3 segundos
         setTimeout(() => {
@@ -80,8 +80,8 @@ export async function carregarConfiguracoes() {
     const idUsuario = localStorage.getItem("idUsuario");
     if (!idUsuario) {
         // Se der erro, mostra mensagem
+        popupMensagem.textContent = "Usuário não conectado.";
         popupContainer.style.display = "block";
-        popupMensagem.textContent = "ID de usuário não fornecido.";
 
         // Esconde a mensagem após 3 segundos
         setTimeout(() => {
@@ -99,7 +99,7 @@ export async function carregarConfiguracoes() {
 
         // Se der erro, interrompe a função
         if (!resposta.ok) {
-            throw new Error("Erro na requisição.");
+            throw new Error(resposta);
         }
 
         // Transforma os dados retornados
@@ -114,8 +114,8 @@ export async function carregarConfiguracoes() {
         menuConfigEmail.textContent = retorno.email;
     } catch (erro) {
         // Se der erro, mostra mensagem
-        popupContainer.style.display = "block";
         popupMensagem.textContent = "Erro ao carregar informações da conta.";
+        popupContainer.style.display = "block";
         console.error(erro);
 
         // Esconde a mensagem após 3 segundos
