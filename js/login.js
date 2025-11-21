@@ -44,6 +44,7 @@ async function conectarUsuario(event) {
         if (!resposta.ok) {
             erroMensagem.textContent = "Email ou senha incorretos"; // Muda a mensagem
             erroMensagem.style.opacity = "1"; // Mostra a mensagem na tela
+
             return; // Termina a função
         }
 

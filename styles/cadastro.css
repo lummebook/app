@@ -1,3 +1,9 @@
+.erro {
+    display: block;
+}
+
+
+
 body {
     background-color: var(--cor-destaque-primaria);
 }
@@ -134,8 +140,8 @@ main {
     .cadastro {
         width: 100%;
         max-width: 650px;
-        height: 80%;
-        min-height: 80%;
+        height: 100%;
+        max-height: 90%;
 
         border-radius: 0 0 10px 10px;
         padding-top: 4rem;

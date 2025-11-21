@@ -113,9 +113,9 @@ body {
 
 .carrinho__info hr,
 .carrinho__resumo hr {
-    margin-bottom: 1rem;
+    margin-block: 1rem;
 
-    color: 2px solid var(--cor-texto-primaria);
+    border: 1px solid var(--cor-texto-primaria);
 }
 
 .resumo-total {

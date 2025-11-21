@@ -191,6 +191,9 @@ main {
 }
 
 @media screen and (max-width: 480px) {
+    main {
+        padding-inline: 0;
+    }
     .livro__conteudo {
         position: static;
     }

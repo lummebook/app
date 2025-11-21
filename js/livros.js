@@ -51,6 +51,21 @@ async function retornarLivrosDoUsuario() {
         }
 
         const livrosRetornados = await resposta.json();
+        if (livrosRetornados.length === 0) {
+            erroMensagem.textContent =
+                "Você ainda não colocou livros para vender.";
+            erroContainer.style.display = "block";
+
+            livrosContainer.innerHTML = `
+                <button class="global__botao-primario js-abrir-venda">Faça sua venda</button>
+            `;
+
+            livrosContainer
+                .querySelector(".js-abrir-venda")
+                .addEventListener("click", abrirVenda);
+
+            return;
+        }
 
         for (const livro of livrosRetornados) {
             const div = document.createElement("div");

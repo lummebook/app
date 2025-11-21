@@ -415,4 +415,9 @@ body:has(.menu-principal__input:checked) {
 
         height: 50px;
     }
+
+    .erro {
+        width: 100%;
+        max-width: 100%;
+    }
 }

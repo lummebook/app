@@ -20,7 +20,9 @@ main {
 }
 
 .livros hr {
-    margin-bottom: 1rem;
+    margin-block: 1rem;
+
+    border: 1px solid var(--cor-texto-primaria);
 }
 
 .livros__container {
@@ -28,6 +30,13 @@ main {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 1rem;
     column-gap: 3rem;
+}
+
+.livros__container button.js-abrir-venda {
+    width: fit-content;
+
+    margin-top: 3rem;
+    margin-inline: auto;
 }
 
 .livro {
@@ -151,6 +160,10 @@ main {
 }
 
 @media screen and (max-width: 480px) {
+    main {
+        padding-inline: 0;
+    }
+
     .livro__conteudo {
         position: static;
     }

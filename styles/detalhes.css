@@ -1,3 +1,7 @@
+.fa-solid {
+    font-size: 1.5rem;
+}
+
 .detalhes__botao-container {
     display: flex;
     align-items: center;

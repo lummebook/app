@@ -3,7 +3,7 @@ import { abrirLogin, abrirHome } from "../js/main.js";
 // Cria a função para limpar mensagem de erro ao mudar o valor do input
 function limparMensagemDeErro() {
     // Pega o parágrafo da mensagem de erro
-    const erroMensagem = document.getElementById("erro");
+    const erroMensagem = document.getElementById("erro__mensagem");
 
     erroMensagem.textContent = ""; // Tira a mensagem
     erroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
@@ -22,8 +22,8 @@ async function cadastrarUsuario(event) {
         .value.trim();
 
     // Pega o parágrafo da mensagem de erro
-    const erroMensagem = document.getElementById("erro");
-
+    const erroMensagem = document.getElementById("erro__mensagem");
+    console.log(erroMensagem)
     // Confirma se as senhas digitadas são iguais
     if (senha !== confirmarSenha) {
         erroMensagem.textContent = "Senhas diferentes digitadas."; // Muda a mensagem
@@ -48,7 +48,7 @@ async function cadastrarUsuario(event) {
         // Se o cadastro falhar
         if (!resposta.ok) {
             console.error(resposta);
-            erroMensagem.textContent = "Dados inválidos inseridos."; // Muda a mensagem
+            erroMensagem.textContent = "Email já cadastrado."; // Muda a mensagem
             erroMensagem.style.opacity = "1"; // Mostra a mensagem na tela
             return; // Termina a função
         }
