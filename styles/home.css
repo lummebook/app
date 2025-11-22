@@ -52,6 +52,7 @@ main {
 
     padding: 1rem;
     padding-top: 2rem;
+    border-radius:  0 0 15px 15px;
 
     background-color: var(--cor-fundo-primaria);
 }

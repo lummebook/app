@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumme - Vender</title>
+    <title>Lumme - Formulário de Livro</title>
 
     <link rel="stylesheet" href="../styles/main.css"> <!-- CSS geral -->
-    <link rel="stylesheet" href="../styles/venda.css"> <!-- CSS dessa página -->
+    <link rel="stylesheet" href="../styles/form.css"> <!-- CSS dessa página -->
 
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png"> <!-- Favicon do site -->
 
     <script type="module" src="../js/main.js" defer></script> <!-- JS geral -->
-    <script type="module" src="../js/venda.js" defer></script> <!-- Carrega o JS dessa página -->
+    <script type="module" src="../js/form.js" defer></script> <!-- Carrega o JS dessa página -->
 </head>
 <body>
     <main>
@@ -21,13 +21,15 @@
         </div>
         
         <section class="formulario-livro">
-            <div class="botao-voltar"><button class="global__botao-secundario js-abrir-home">Voltar</button></div>
+            <div class="botao-voltar">
+                <button class="global__botao-secundario js-abrir-home">Voltar</button>
+            </div>
 
-            <h1>Venda de livro</h1>
-            <p>Preencha as informações abaixo para vender um novo livro</p>
+            <h1 id="formulario-livro__titulo"></h1>
+            <h2 id="formulario-livro__subtitulo"></h2>
 
-            <!-- Formulário para vender um livro -->
-            <form action="" method="POST" class="form js-vender-livro">
+            <!-- Formulário para vender/alterar um livro -->
+            <form action="" method="POST" class="form js-form-livro">
                 <div>
                     <!-- Container do campo -->
                     <p class="form__campo">
@@ -68,9 +70,9 @@
                     <p class="erro__mensagem" id="erro__mensagem"></p>
                 </div>
 
-                <!-- Botão para vender o livro -->
-                <div class="form-botao-vender">
-                    <button class="global__botao-primario" type="submit">Faça sua venda</button>
+                <!-- Botão para vender/alterar o livro -->
+                <div class="form__botao-container">
+                    <button class="global__botao-primario" type="submit" id="form__botao"></button>
                 </div>
             </form>
         </section>

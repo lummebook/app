@@ -23,7 +23,10 @@ async function cadastrarUsuario(event) {
 
     // Pega o parágrafo da mensagem de erro
     const erroMensagem = document.getElementById("erro__mensagem");
-    console.log(erroMensagem)
+
+    erroMensagem.style.opacity = "0"; // Esconde a mensagem da tela
+    erroMensagem.textContent = ""; // Tira a mensagem
+    
     // Confirma se as senhas digitadas são iguais
     if (senha !== confirmarSenha) {
         erroMensagem.textContent = "Senhas diferentes digitadas."; // Muda a mensagem
@@ -75,6 +78,4 @@ document
 document
     .querySelector(".js-limpar-mensagem-de-erro")
     .addEventListener("input", limparMensagemDeErro);
-document
-    .querySelector(".js-abrir-login")
-    .addEventListener("click", abrirLogin);
+document.querySelector(".js-abrir-login").addEventListener("click", abrirLogin);

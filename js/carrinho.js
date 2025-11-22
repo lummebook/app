@@ -1,11 +1,11 @@
 import {
     abrirHome,
     abrirCarrinho,
-    abrirVenda,
     carregarConfiguracoes,
     desconectarUsuario,
     deletarUsuario,
     abrirLivrosRegistrados,
+    abrirForm,
 } from "../js/main.js";
 
 // Cria a função para chamar outras funções assim que a página carregar
@@ -202,7 +202,7 @@ document.querySelector(".js-abrir-home").addEventListener("click", abrirHome);
 document
     .querySelectorAll(".js-abrir-carrinho")
     .forEach((elemento) => elemento.addEventListener("click", abrirCarrinho));
-document.querySelector(".js-abrir-venda").addEventListener("click", abrirVenda);
+document.querySelector(".js-abrir-venda").addEventListener("click", abrirForm);
 document
     .querySelector(".js-abrir-livros-registrados")
     .addEventListener("click", abrirLivrosRegistrados);

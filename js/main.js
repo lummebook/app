@@ -136,10 +136,15 @@ export async function travarMovimentoDeTela(deveTravarMovimento) {
 
 export async function comprarLivros(idLivrosArray) {}
 
-// Cria a função para trocar para a página de vender um livro
-export function abrirVenda() {
-    // Troca para a tela de vender livro
-    window.location.href = "venda.html";
+// Cria a função para trocar para a página de vender/alterar um livro
+export function abrirForm (idLivro) {
+    if (idLivro) {
+        // Troca para tela de alterar livro
+        window.location.href = `form.html?idLivro=${idLivro}`;
+    } else {
+        // Troca para a tela de vender livro
+        window.location.href = "form.html";
+    }
 }
 
 // Cria a função para trocar para página de carrinho

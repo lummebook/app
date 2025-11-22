@@ -1,10 +1,10 @@
 import {
     abrirHome,
     abrirCarrinho,
-    abrirVenda,
     abrirLivrosRegistrados,
     desconectarUsuario,
     deletarUsuario,
+    abrirForm,
 } from "./main.js";
 
 async function retornarLivrosDoUsuario() {
@@ -62,7 +62,7 @@ async function retornarLivrosDoUsuario() {
 
             livrosContainer
                 .querySelector(".js-abrir-venda")
-                .addEventListener("click", abrirVenda);
+                .addEventListener("click", abrirForm);
 
             return;
         }
@@ -93,7 +93,7 @@ async function retornarLivrosDoUsuario() {
 
             div.querySelector(".js-atualizar-livro").addEventListener(
                 "click",
-                () => atualizarLivro(livro.idLivro)
+                () => abrirForm(livro.idLivro)
             );
             div.querySelector(".js-deletar-livro").addEventListener(
                 "click",
@@ -108,8 +108,6 @@ async function retornarLivrosDoUsuario() {
         console.error(erro);
     }
 }
-
-async function atualizarLivro(idLivro) {}
 
 async function deletarLivro(tituloLivro, idLivro) {
     // Pega os elementos do container e da mensagem
@@ -158,7 +156,7 @@ document.querySelector(".js-abrir-home").addEventListener("click", abrirHome);
 document
     .querySelectorAll(".js-abrir-carrinho")
     .forEach((elemento) => elemento.addEventListener("click", abrirCarrinho));
-document.querySelector(".js-abrir-venda").addEventListener("click", abrirVenda);
+document.querySelector(".js-abrir-venda").addEventListener("click", abrirForm);
 document
     .querySelector(".js-abrir-livros-registrados")
     .addEventListener("click", abrirLivrosRegistrados);

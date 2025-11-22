@@ -20,6 +20,11 @@ body {
     background-color: var(--cor-fundo-primaria);
 }
 
+.formulario-livro h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -64,9 +69,17 @@ body {
     border: none;
     padding: .5rem 1rem;
 
-    background-color: var(--cor-fundo-secundaria);
+    background-color: rgb(199, 199, 199);
 
     font-size: 1rem;
+}
+
+.form__campo input:-webkit-autofill,
+.form__campo input:-webkit-autofill:hover,
+.form__campo input:-webkit-autofill:focus,
+.form__campo input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px rgb(199, 199, 199) inset !important;
+    color: var(--cor-texto-primaria) !important;
 }
 
 /* Container para mensagem de erro */
@@ -86,7 +99,7 @@ body {
     font-weight: 500;
 }
 
-.form-botao-vender {
+.form__botao-container {
     position: absolute;
     bottom: 1rem;
     left: 50%;
@@ -94,7 +107,7 @@ body {
 }
 
 /* Estiliza o botão para vender */
-.form-botao-vender button {
+.form__botao {
     margin-top: 5rem;
 }
 
