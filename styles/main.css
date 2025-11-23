@@ -365,7 +365,7 @@ body:has(.menu-principal__input:checked) {
     top: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 100;
+    z-index: 1000;
     
     width: 300px;
     height: fit-content;
@@ -380,6 +380,83 @@ body:has(.menu-principal__input:checked) {
     text-align: center;
     color: var(--cor-texto-primaria);
     font-weight: 500;
+}
+
+.popup-compra {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+
+    width: 300px;
+    height: 100px;
+
+    border-radius: 15px;
+    padding: 1rem;
+
+    background-color: var(--cor-fundo-primaria);
+}
+
+.popup-compra__mensagem {
+    font-weight: 500;
+    letter-spacing: .04rem;
+}
+
+.popup-compra__loading {
+    position: relative;
+
+    display: block;
+
+    width: 80%;
+    height: 5px;
+
+    border-radius: 5px;
+
+    background-color: var(--cor-fundo-secundaria);
+}
+
+.popup-compra__barra {
+    position: absolute;
+    left: 0;
+
+    display: block;
+
+    width: 20%;
+    height: 5px;
+
+    border-radius: 5px;
+
+    background-color: var(--cor-destaque-primaria);
+    animation: carregando-compra 1s infinite alternate ease-in-out;
+}
+
+@keyframes carregando-compra {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(400%);
+    }
+}
+
+.popup-compra__camada {
+    position: fixed;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1500;
+
+    display: none;
+
+    background-color: rgba(0, 0, 0, 0.466);
 }
 
 @media screen and (max-width: 680px) {

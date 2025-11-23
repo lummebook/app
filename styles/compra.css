@@ -1,0 +1,27 @@
+.agradecimentos {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 500px;
+
+    margin-inline: auto;
+    padding: 1rem;
+    padding-top: 5rem;
+
+    text-align: center;
+}
+
+.agradecimentos h1 {
+    margin-bottom: 2rem;
+}
+
+.agradecimentos p {
+    margin-bottom: .4rem;
+
+    font-weight: 400;
+}
+
+.agradecimentos__botao-container {
+    margin-top: 3rem;
+}

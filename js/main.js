@@ -134,10 +134,75 @@ export async function travarMovimentoDeTela(deveTravarMovimento) {
     }
 }
 
-export async function comprarLivros(idLivrosArray) {}
+export async function efetuarCompra(idLivrosArray) {
+    // Pega os elementos do container e da mensagem
+    const popupContainer = document.getElementById("popup");
+    const popupMensagem = document.getElementById("popup__mensagem");
+
+    // Pega os elementos do popup de compra
+    const popupCompraContainer = document.getElementById("popup-compra");
+    const popupCompraCamada = document.getElementById("popup-compra__camada");
+
+    // Mostra os elementos na tela
+    popupCompraContainer.style.display = "flex";
+    popupCompraCamada.style.display = "block";
+
+    // Pega o ID do usuário salvo se existir
+    const idUsuario = localStorage.getItem("idUsuario");
+    if (!idUsuario) {
+        // Se der erro, mostra mensagem
+        popupMensagem.textContent = "Usuário não conectado.";
+        popupContainer.style.display = "block";
+
+        // Esconde a mensagem após 3 segundos
+        setTimeout(() => {
+            popupContainer.style.display = "none";
+            popupMensagem.textContent = "";
+        }, 3000);
+        return;
+    }
+
+    try {
+        const resposta = await fetch(
+            `https://lumme-api.onrender.com/usuarios/${idUsuario}/compra`,
+            {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ idLivrosArray }),
+            }
+        );
+
+        if (!resposta.ok) {
+            throw new Error(resposta);
+        }
+
+        // Esconde os elementos da tela
+        popupCompraContainer.style.display = "none";
+        popupCompraCamada.style.display = "none";
+
+        abrirCompra();
+    } catch (erro) {
+        // Mostra os elementos na tela
+        popupCompraContainer.style.display = "none";
+        popupCompraCamada.style.display = "none";
+
+        // Se der erro, mostra mensagem
+        popupMensagem.textContent = "Erro ao efetuar a compra.";
+        popupContainer.style.display = "block";
+        console.error(erro);
+
+        // Esconde a mensagem após 3 segundos
+        setTimeout(() => {
+            popupContainer.style.display = "none";
+            popupMensagem.textContent = "";
+        }, 3000);
+    }
+}
 
 // Cria a função para trocar para a página de vender/alterar um livro
-export function abrirForm (idLivro) {
+export function abrirForm(idLivro) {
     if (idLivro) {
         // Troca para tela de alterar livro
         window.location.href = `form.html?idLivro=${idLivro}`;
@@ -166,6 +231,11 @@ export function abrirLogin() {
 // Cria a função para trocar para página de livros
 export function abrirLivrosRegistrados() {
     window.location.href = "livros.html";
+}
+
+// Cria a função para trocar para página de livros
+export function abrirCompra () {
+    window.location.href = "compra.html";
 }
 
 // Cria a função para trocar para página inicial

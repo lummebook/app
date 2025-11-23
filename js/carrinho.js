@@ -6,6 +6,7 @@ import {
     deletarUsuario,
     abrirLivrosRegistrados,
     abrirForm,
+    efetuarCompra,
 } from "../js/main.js";
 
 // Cria a função para chamar outras funções assim que a página carregar
@@ -65,6 +66,24 @@ async function carregarLivrosDoCarrinho() {
             erroMensagem.textContent = "Nenhum livro adicionado ao carrinho.";
             erroContainer.style.display = "block";
 
+            // Pega os elementos do container e da mensagem
+            const popupContainer = document.getElementById("popup");
+            const popupMensagem = document.getElementById("popup__mensagem");
+
+            document
+                .querySelector(".js-finalizar-compra")
+                .addEventListener("click", () => {
+                    popupMensagem.textContent =
+                        "Não há livros no carrinho. Que tal adicionar alguns?";
+                    popupContainer.style.display = "block";
+
+                    // Esconde a mensagem após 3 segundos
+                    setTimeout(() => {
+                        popupContainer.style.display = "none";
+                        popupMensagem.textContent = "";
+                    }, 3000);
+                });
+
             return;
         }
 
@@ -74,12 +93,14 @@ async function carregarLivrosDoCarrinho() {
         // Preço e quantidade total dos livros
         let soma = 0;
         let quantidade = 0;
+        let idLivrosArray = [];
 
         // Percorre todos os livros retornados
         for (const livro of livros) {
             // Calcula o valor total
             soma += livro.preco;
             quantidade += 1;
+            idLivrosArray.push(livro.idLivro);
 
             // Cria o container do livro
             const div = document.createElement("div");
@@ -121,6 +142,10 @@ async function carregarLivrosDoCarrinho() {
             produtosPreco.textContent = `${soma.toFixed(2)}`;
             totalPreco.textContent = `${(soma + 10).toFixed(2)}`;
         }
+
+        document
+            .querySelector(".js-finalizar-compra")
+            .addEventListener("click", () => efetuarCompra(idLivrosArray));
     } catch (erro) {
         console.error(erro);
 
